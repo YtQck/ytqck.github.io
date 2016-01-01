@@ -54,6 +54,7 @@ function getInfo() {
 }
 
 function userVideo(){
-  dbref.child("man").child(userid).child(videoID).child("title").set(videoTitle);
-  dbref.child("man").child(userid).child(videoID).child("channel").set(channelTitle);
+  $(".likeBtn").css({"color":"#1e88e5"});
+  dbref.child("man").child(userid).child("videoLikes").child(videoID).child("title").set(videoTitle);
+  dbref.child("man").child(userid).child("videoLikes").child(videoID).child("channel").set(channelTitle);
 }

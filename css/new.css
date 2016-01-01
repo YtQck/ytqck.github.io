@@ -395,6 +395,7 @@ main {
   position: absolute;
 }
 #player{
+  position: relative;
   padding-bottom: 56.25%;
 }
 #player iframe{
@@ -508,10 +509,9 @@ li.btns{
 /*cards*/
 #cARD{
   width: 100%;
+  height: 400px;
 }
-.demo-card-wide{
-  position: relative;
-  left: 10%;
-  width: 80%;
-  padding-top: 20px;
+.likeBtn{
+  left:10%;
+  padding-left: 30px;
 }
