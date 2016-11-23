@@ -111,26 +111,33 @@
     	<script type="text/javascript" src="autoSuggest.js"></script>
       	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     </li>
-    <li class="right">v-beta8.2</li>
+    <li class="right">v-beta9.0</li>
    </ul>
   </div>
 </nav>
   <div class="clearfix"></div>
-  <div class="row">
-    <div class="col s10 offset-s1" id="YTPlayer">
-    </div>
+  <div class="container">
+  	<div class="row">
+	    <div class="col s8" id="YTPlayer"></div>
+	    <div class="col s4">
+		    <div id="titleY"></div>
+		    <div id="desc"></div>
+	    </div>
+	</div>
+  </div>
     <script type="text/javascript">
     	function def(){
   var list = ['eCH9gClZprM', '4PdU6migsqQ', 'IoBP24I2lwA', 'ANS9sSJA9Yc', '0FWRT9C9XMQ', 'QK8mJJJvaes', 'pAgnJDJN4VA', 'YQHsXMglC9A', 'RgKAFK5djSk', 'VDvr08sCPOc', 'AJtDXIazrMo'];
   var randId = list[Math.floor(Math.random()*list.length)];
-  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="100%" height="480px" src="https://www.youtube.com/embed/'+randId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
+  details(randId);
+  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315"  src="https://www.youtube.com/embed/'+randId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
 }
     </script>
     <div class="col s1" id="desc"></div>
   </div>
   <div class="clearfix"></div>
-  <div class="row">
-    <div class="col s9 offset-s1">
+  <div class="container">
+    <div class="">
       <h5 class="simHead" id="simHead"></h5>
       <div class="row">
         <div class="col s3" id="secVid"></div>

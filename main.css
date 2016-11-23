@@ -57,3 +57,11 @@
    .logo{
     padding-left: 5px;
    }
+   #titleY{
+    font-size: 16px;
+    color: red;
+   }
+   #desc{
+    font-size: 12px;
+    color: grey;
+   }
