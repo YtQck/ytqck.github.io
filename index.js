@@ -32,7 +32,6 @@ function video(q){
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
-        document.getElementById('fbBtn').innerHTML = '<div class="fb-share-button" data-href="http://ytqck.github.io/watch.html?'+videoId+'"  data-layout="button_count"></div>';
       } else {
           alert("Request unsuccessful");
       }
