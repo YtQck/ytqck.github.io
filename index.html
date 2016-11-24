@@ -65,7 +65,7 @@
 	 <meta property="og:url" content="http://ytqck.github.io" />
 	 <meta property="og:type" content="website" />
 	 <meta property="og:description" content="YouTube quick play with almost nil clicks and a better speed - not loading most of the shits and dumbs like ads." />
-	 <meta property="og:image" content="main.png" />
+	 <meta property="og:image" content="https://ytqck.github.io/main.png" />
 		<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
@@ -84,7 +84,6 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body onload="def()">
-<script type="text/javascript" src="fbSDK.js"></script>
 <nav>
   <div class="nav-wrapper red darken-1 hoverable z-depth-2">
   <ul>
@@ -120,7 +119,9 @@
 		    <div id="titleY"></div>
 		    <div id="desc"></div>
 		    <div id="viewsCount"></div>
-		    <div id="fb-root"></div>
+		    <div class="card">
+		    	<div id="fb-root"></div>
+		    <script type="text/javascript" src="fbSDK.js"></script>
 			<script>(function(d, s, id) {
 	          var js, fjs = d.getElementsByTagName(s)[0];
 	          if (d.getElementById(id)) return;
@@ -129,8 +130,8 @@
 	          fjs.parentNode.insertBefore(js, fjs);
 	        }(document, 'script', 'facebook-jssdk'));
 	        </script>
-	        <div class="fb-share-button center fbBTN" data-href="https://ytqck.github.io/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fytqck.github.io%2F&amp;src=sdkpreparse">Share</a></div>
-			
+	        <div class="fb-share-button center fbBTN" data-href="https://ytqck.github.io/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fytqck.github.io%2F&amp;src=sdkpreparse">Share</a></div>		    	
+		    </div>		
 	    </div>
 	</div>
   </div>
