@@ -1,5 +1,5 @@
 var z = window.location.href;
-var y = z.substring(57, z.length);
+var y = z.substring(35, z.length);
 document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/'+y+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
 details(y);
 stats(y);
