@@ -54,14 +54,12 @@
   When you read a short story, you come out a little more aware and a little more in love with the world around you. ~George Saunders
    -->
 	 <meta content="1 days" name="revisit-after">
-	 <meta content="Dhruv Jain" name="author">
 	 <meta content="YouTube quick play with almost nil clicks and a better speed - not loading most of the shits and dumbs like ads." name="description">
 	 <meta content="yt mini player, yt, mini, player, mini player, youtube mini, youtube mini player, youtube fast player, fast, adfree, youtube adfree, faster youtube, youtube, Dhruv Jain, DhruvJain, YouTube, Dhruv YouTube, YT, YouTube Fast Play, midhruvjaink yt, midhruvjaink youtube, youtube instant, ytinstant, Dhruv, midhruvjaink, Mukesh Jain, DatorLab, GitHub, StackOverFlow, Quora, dj, Dhruva Jain, ZeroPennyMovies, JECRC, Jaipur, India, JECRC College, Jaipur Engineering College and Research Center, RTDEEE," name="keywords">
-	 <meta content="Dhruv Jain" name="site_name">
 	 <meta name="google-site-verification" content="2txplprlPooZHfqxK-K6EismZ3svcuBWOjq9y4D8HXQ" />
 	 <link href='fav.png' rel='icon' type='image/x-icon'/>
 	 <!--og meta-->
-	 <meta name="og:title" content="YouTube Mini Player">
+	 <meta name="og:title" content="YouTube Mini Player | YtQck">
 	 <meta property="og:url" content="http://ytqck.github.io" />
 	 <meta property="og:type" content="website" />
 	 <meta property="og:description" content="YouTube quick play with almost nil clicks and a better speed - not loading most of the shits and dumbs like ads." />
@@ -77,7 +75,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-82828999-1', 'auto');
+  ga('create', 'UA-87971868-1', 'auto');
   ga('send', 'pageview');
 
 </script>
@@ -107,14 +105,22 @@
         </script>
     	</form>         
     </li>
-    <li class="right">v-beta9.4</li>
+    <li class="right">v-beta10.0</li>
    </ul>
   </div>
 </nav>
   <div class="clearfix"></div>
   <div class="container">
   	<div class="row">
-	    <div class="col s8" id="YTPlayer"></div>
+  		<div class="col s8">
+  			<div class="" id="YTPlayer"></div>
+			<div id="fb-share-button">
+		    	<svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
+		        <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+		    	</svg>
+		    	<span>Share</span>
+			</div>
+  		</div>	    
 	    <div class="col s4">
 		    <div id="titleY"></div>
 		    <div id="desc"></div>
@@ -141,6 +147,7 @@
   var randId = list[Math.floor(Math.random()*list.length)];
   details(randId);
   document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315"  src="https://www.youtube.com/embed/'+randId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
+
 }
     </script>
     <div class="col s1" id="desc"></div>

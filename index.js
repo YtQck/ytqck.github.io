@@ -32,6 +32,7 @@ function video(q){
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
+        
       } else {
           alert("Request unsuccessful");
       }
@@ -54,6 +55,16 @@ function video(q){
           document.getElementById('titleY').innerHTML = titleY;
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('desc').innerHTML = channel;
+          var fbButton = document.getElementById('fb-share-button');
+          var url = "https://ytqck.github.io/watch.html?"+videoId+'&quote='+titleY;
+
+          fbButton.addEventListener('click', function() {
+              window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+                  'facebook-share-dialog',
+                  'width=800,height=600'
+              );
+              return false;
+          });
         } else {
           alert("Request unsuccessful");
         }
