@@ -20,10 +20,11 @@ function video(q){
       if ((status >= 200 && status < 300) || status === 304) {
         var rss = JSON.parse(xhr.responseText);
         var videoId = rss.items[0].id.videoId;
-        details(videoId);
         YT(videoId);
         link += '~';
-        link += videoId;     
+        link += videoId;
+        details(videoId);     
+        stats(videoId);
         var secVid = rss.items[1].id.videoId;
         var thVid = rss.items[2].id.videoId;
         var frthVid = rss.items[3].id.videoId;
@@ -53,6 +54,25 @@ function video(q){
           document.getElementById('titleY').innerHTML = titleY;
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('desc').innerHTML = channel;
+        } else {
+          alert("Request unsuccessful");
+        }
+      }
+    };
+    hell.send(null);
+  }
+
+  function stats(videoId){
+    var hell = new XMLHttpRequest;
+    var url2 = "https://www.googleapis.com/youtube/v3/videos?part=statistics&id="+videoId+"&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
+    hell.open("GET", url2, true);
+    hell.onreadystatechange = function(){
+      if(hell.readyState === 4){
+        var status = hell.status;
+        if((status>=200&& status<300)||status ===304){
+          var rss = JSON.parse(hell.responseText);
+          var views = rss.items[0].statistics.viewCount;
+          document.getElementById('viewsCount').innerHTML = (views + ' views')
         } else {
           alert("Request unsuccessful");
         }
