@@ -28,49 +28,47 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1862686427297723";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-  <nav>
+<nav>
   <div class="nav-wrapper red darken-1 hoverable z-depth-2">
   <ul>
-  <li>
-    <img src="main.png" alt="logo" class="logo responsive-img" width="60px" height="60px" />
+    <li>
+      <img src="main.png" alt="logo" class="responsive-img logo" width="60px" height="60px" />
     </li>
     <li class="searchBox grey-text lighten-5">
-    <form class="grey-text lighten-5" id="searchBox" action="video.html" ng-app ng-controller="Ctrl">
-      <input type="text" name="search" placeholder="Search Video" class="query grey-text red darken-1 lighten-5" id="query" list="items">
-          <script type="text/javascript">
-            var input = document.getElementById('query');
+      <form class="grey-text lighten-5" id="searchBox" ng-app ng-controller="Ctrl">
+      <div class="row">
+          <div class="col s11">
+            <input type="text" name="search" onKeyPress="video(document.getElementById('query').value)" onKeyUp="video(document.getElementById('query').value)" placeholder="Search Video..." class="query white-text red darken-1 lighten-5" id="query" list="items">
+          </div>
+          <div class="col s1">
+            <input type="submit" style="visibility:hidden;"></input>
+          </div>
+      </div>        
+        <script type="text/javascript">
+          var input = document.getElementById('query');
             input.focus();
             input.select();
-          </script>
-        <datalist id="items">
-            <option ng-repeat="option in dataset" value="{{option[0]}}" />
-        </datalist>
-    </form>         
-    <script>
-      var Ctrl;
-    </script>
-    <script type="text/javascript" src="autoSuggest.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-      </li>
-      <li class="right">
-        <div class="fb-share-button" data-href="http://midhruvjaink.xyz/yt/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmidhruvjaink.xyz%2Fyt%2F&amp;src=sdkpreparse">Share</a></div>
-      </li>
-    </ul>
+        </script>
+      </form>         
+    </li>
+    <li class="right">v-beta9.2</li>
+   </ul>
   </div>
 </nav>
-<div class="clearfix"></div>
-  <div class="row">
-    <div class="col s10 offset-s1" id="YTPlayer"></div>
+  <div class="clearfix"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col s8" id="YTPlayer"></div>
+      <div class="col s4">
+        <div id="titleY"></div>
+        <div id="desc"></div>
+        <div id="viewsCount"></div>
+      </div>
+  </div>
+  </div>
     <div class="col s1" id="desc"></div>
   </div>
   <script src="main.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
