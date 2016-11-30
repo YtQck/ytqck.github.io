@@ -66,7 +66,6 @@ function video(q){
               );
               return false;
           });
-          url = "https://twitter.com/intent/tweet?text="+titleY+"&url=https://ytqck.github.io/watch.html?"+videoId;
           document.getElementById('twitter').href=url;
           document.getElementById('ogTitle').setAttribute("content", titleY);
         } else {
