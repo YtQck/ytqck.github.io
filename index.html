@@ -4,18 +4,18 @@
 	<title>YouTube Mini Player - Home</title>
 	<!--meta tags-->
   <!--
-  “Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.” 
+  “Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.”
    - Jalaluddin Rumi
 
   *****************************************
   *****************************************
-  
+
   "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning."
    - Albert Einstein
 
   *****************************************
   *****************************************
-  
+
   "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it."
    - Steve Jobs
   The great thing about a short story is that it doesn’t have to trawl through someone’s whole life; it can come in glancingly from the side. ~Emma Donoghue
@@ -50,7 +50,7 @@
   I’m a failed poet. Maybe every novelist wants to write poetry first, finds he can’t and then tries the short story which is the most demanding form after poetry. And failing at that, only then does he take up novel writing. ~William Faulkner
 
   Somewhere around the place I’ve got an unfinished short story about Schrodinger’s Dog; it was mostly moaning about all the attention the cat was getting. ~Terry Pratchett
-  
+
   When you read a short story, you come out a little more aware and a little more in love with the world around you. ~George Saunders
    -->
 	 <meta content="1 days" name="revisit-after">
@@ -59,53 +59,38 @@
 	 <meta name="google-site-verification" content="2txplprlPooZHfqxK-K6EismZ3svcuBWOjq9y4D8HXQ" />
 	 <link href='fav.png' rel='icon' type='image/x-icon'/>
 	 <!--og meta-->
-	 <meta name="og:title" content="YouTube Mini Player | YtQck">
+	 <meta name="og:title" content="YouTube Mini Player | YtQck" id="ogTitle">
 	 <meta property="og:url" content="http://ytqck.github.io" />
 	 <meta property="og:type" content="website" />
 	 <meta property="og:description" content="YouTube quick play with almost nil clicks and a better speed - not loading most of the shits and dumbs like ads." />
 	 <meta property="og:image" content="https://ytqck.github.io/main.png" />
-		<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <!--google analytics trace code-->
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-87971868-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body onload="def()">
-<nav>
-  <div class="nav-wrapper red darken-1 hoverable z-depth-2">
+<nav class="topMainNav">
+  <div class="nav-wrapper">
   <ul>
   	<li>
       <img src="main.png" alt="logo" class="responsive-img logo" width="60px" height="60px" />
     </li>
-    <li class="searchBox grey-text lighten-5">
-    	<form class="grey-text lighten-5" id="searchBox" ng-app ng-controller="Ctrl">
+    <li class="searchBox">
+    	<form class="black-text" id="searchBox">
     	<div class="row">
       		<div class="col s11">
-        		<input type="text" name="search" onKeyPress="video(document.getElementById('query').value)" onKeyUp="video(document.getElementById('query').value)" placeholder="Search Video..." class="query white-text red darken-1 lighten-5" id="query" list="items">
+        		<input type="text" name="search" onKeyPress="video(document.getElementById('query').value)" onKeyUp="video(document.getElementById('query').value)" placeholder="Search Video..." class="query" id="query" list="items">
       		</div>
       		<div class="col s1">
         		<input type="submit" style="visibility:hidden;"></input>
       		</div>
-    	</div>        
+    	</div>
         <script type="text/javascript">
         	var input = document.getElementById('query');
             input.focus();
             input.select();
         </script>
-    	</form>         
+    	</form>
     </li>
-    <li class="right">v-beta10.0</li>
    </ul>
   </div>
 </nav>
@@ -114,42 +99,51 @@
   	<div class="row">
   		<div class="col s8">
   			<div class="" id="YTPlayer"></div>
-			<div id="fb-share-button">
-		    	<svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
-		        <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
-		    	</svg>
-		    	<span>Share</span>
-			</div>
-  		</div>	    
+				<script type="text/javascript">
+		    	function def(){
+					  var list = ['eCH9gClZprM', '4PdU6migsqQ', 'IoBP24I2lwA', 'ANS9sSJA9Yc', '0FWRT9C9XMQ', 'QK8mJJJvaes', 'pAgnJDJN4VA', 'YQHsXMglC9A', 'RgKAFK5djSk', 'VDvr08sCPOc', 'AJtDXIazrMo'];
+					  var randId = list[Math.floor(Math.random()*list.length)];
+					  details(randId);
+					  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315"  src="https://www.youtube.com/embed/'+randId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
+					}
+		    </script>
+				<div class="row">
+					<div class="col s8">
+						<label>Link
+							<textarea id="linkShare">
+							</textarea>
+						</label>
+					</div>
+				</div>
+  		</div>
 	    <div class="col s4">
 		    <div id="titleY"></div>
 		    <div id="desc"></div>
 		    <div id="viewsCount"></div>
-		    <div class="card">
-		    	<div id="fb-root"></div>
-		    <script type="text/javascript" src="fbSDK.js"></script>
-			<script>(function(d, s, id) {
-	          var js, fjs = d.getElementsByTagName(s)[0];
-	          if (d.getElementById(id)) return;
-	          js = d.createElement(s); js.id = id;
-	          js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=758134654325447";
-	          fjs.parentNode.insertBefore(js, fjs);
-	        }(document, 'script', 'facebook-jssdk'));
-	        </script>
-	        <div class="fb-share-button center fbBTN" data-href="https://ytqck.github.io/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fytqck.github.io%2F&amp;src=sdkpreparse">Share</a></div>		    	
-		    </div>		
+				<br>
+					<div class="row">
+            <div class="col s3 btnS" id="fb-share-button">
+  				    	<svg viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
+  				        <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+  				    	</svg>
+  				    	<span>Share</span>
+  					</div>
+            <div class="col s6 btnS">
+							<a class="github-button" target="_blank" href="https://github.com/midhruvjaink" data-style="mega" data-count-href="/midhruvjaink/followers" data-count-api="/users/midhruvjaink#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @midhruvjaink on GitHub">Follow @midhruvjaink</a>
+            </div>
+          </div>
+					<br>
+					<div class="row">
+            <div class="col s6 btnS">
+							<a class="github-button" href="https://github.com/YtQck/ytqck.github.io" data-style="mega" data-count-href="/YtQck/ytqck.github.io/stargazers" data-count-api="/repos/YtQck/ytqck.github.io#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star YtQck/ytqck.github.io on GitHub">Star</a>
+  					</div>
+            <div class="col s6 btnS">
+							<a class="github-button" href="https://github.com/YtQck/ytqck.github.io/fork" data-style="mega" data-count-href="/YtQck/ytqck.github.io/network" data-count-api="/repos/YtQck/ytqck.github.io#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork YtQck/ytqck.github.io on GitHub">Fork</a>
+            </div>
+          </div>
 	    </div>
 	</div>
   </div>
-    <script type="text/javascript">
-    	function def(){
-  var list = ['eCH9gClZprM', '4PdU6migsqQ', 'IoBP24I2lwA', 'ANS9sSJA9Yc', '0FWRT9C9XMQ', 'QK8mJJJvaes', 'pAgnJDJN4VA', 'YQHsXMglC9A', 'RgKAFK5djSk', 'VDvr08sCPOc', 'AJtDXIazrMo'];
-  var randId = list[Math.floor(Math.random()*list.length)];
-  details(randId);
-  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315"  src="https://www.youtube.com/embed/'+randId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
-
-}
-    </script>
     <div class="col s1" id="desc"></div>
   </div>
   <div class="clearfix"></div>
@@ -164,5 +158,15 @@
     </div>
   </div>
   <script type="text/javascript" src="index.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-87971868-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

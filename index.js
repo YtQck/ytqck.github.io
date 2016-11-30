@@ -1,9 +1,9 @@
 var link = window.location.href;
-function video(q){  
+function video(q){
   var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
   var url = "https://www.googleapis.com/youtube/v3/search?part=id&q="+q+"&type=video&key="+api;
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);  
+  xhr.open("GET", url, true);
   function getEl(id, value){
     document.getElementById(id).innerHTML = (value);
   }
@@ -13,7 +13,7 @@ function video(q){
   function vdImage(no){
     return '<a href="watch.html?'+no+'"><img class="responsive-img" src="https://i.ytimg.com/vi/'+no+'/mqdefault.jpg" /></a>';
   }
-  
+
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       var status = xhr.status;
@@ -23,7 +23,7 @@ function video(q){
         YT(videoId);
         link += '~';
         link += videoId;
-        details(videoId);     
+        details(videoId);
         stats(videoId);
         var secVid = rss.items[1].id.videoId;
         var thVid = rss.items[2].id.videoId;
@@ -32,7 +32,7 @@ function video(q){
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
-        
+
       } else {
           alert("Request unsuccessful");
       }
@@ -46,9 +46,9 @@ function video(q){
     var url2 = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+videoId+"&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
     hell.open("GET", url2, true);
     hell.onreadystatechange = function(){
-      if(hell.readyState === 4){
+      if( hell.readyState === 4 ){
         var status = hell.status;
-        if((status>=200&& status<300)||status ===304){
+        if((status >= 200 && status < 300) || status === 304){
           var rss = JSON.parse(hell.responseText);
           var titleY = rss.items[0].snippet.title;
           document.title = (titleY);
@@ -56,8 +56,9 @@ function video(q){
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('desc').innerHTML = channel;
           var fbButton = document.getElementById('fb-share-button');
-          var url = "https://ytqck.github.io/watch.html?"+videoId+'&quote='+titleY;
-
+          var url = "https://ytqck.github.io/watch.html?"+videoId;
+          document.getElementById('linkShare').innerHTML = url;
+          url += '&quote='+titleY;
           fbButton.addEventListener('click', function() {
               window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
                   'facebook-share-dialog',
@@ -65,6 +66,9 @@ function video(q){
               );
               return false;
           });
+          url = "https://twitter.com/intent/tweet?text="+titleY+"&url=https://ytqck.github.io/watch.html?"+videoId;
+          document.getElementById('twitter').href=url;
+          document.getElementById('ogTitle').setAttribute("content", titleY);
         } else {
           alert("Request unsuccessful");
         }
@@ -80,7 +84,7 @@ function video(q){
     hell.onreadystatechange = function(){
       if(hell.readyState === 4){
         var status = hell.status;
-        if((status>=200&& status<300)||status ===304){
+        if((status >= 200 && status < 300) || status === 304){
           var rss = JSON.parse(hell.responseText);
           var views = rss.items[0].statistics.viewCount;
           document.getElementById('viewsCount').innerHTML = (views + ' views')

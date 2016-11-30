@@ -1,30 +1,36 @@
-  
+  body{
+    background-color: #EEEFF4;
+  }
+  .topMainNav{
+    background-color: #EEEFF4;
+  }
   /* label color */
    .input-field label {
-     color: #E62117;
+     color: ;
+     border: 1px solid black;
    }
    /* label focus color */
    .input-field input[type=text]:focus + label {
-     color: #E62117;
+    border: 1px solid black;
    }
    /* label underline focus color */
    .input-field input[type=text]:focus {
-     border-bottom: 1px solid #E62117;
-     box-shadow: 0 1px 0 0 #E62117;
+     border: 1px solid black;
+     box-shadow: 0 1px 0 0 ;
    }
    /* valid color */
    .input-field input[type=text].valid {
-     border-bottom: 1px solid #E62117;
-     box-shadow: 0 1px 0 0 #E62117;
+     border: 1px solid black;
+     box-shadow: 0 1px 0 0 ;
    }
    /* invalid color */
    .input-field input[type=text].invalid {
-     border-bottom: 1px solid #E62117;
-     box-shadow: 0 1px 0 0 #E62117;
+     border: 1px solid black;
+     box-shadow: 0 1px 0 0 ;
    }
    /* icon prefix focus color */
    .input-field .prefix.active {
-     color: #E62117;
+     color: ;
    }
    .input-fiels{
     display: inline;
@@ -52,7 +58,7 @@
    }
    .right{
     padding-right:10px;
-    font-size: 12px; 
+    font-size: 12px;
    }
    .logo{
     padding-left: 5px;
@@ -100,4 +106,7 @@
     }
     .fbSHARE{
       padding-top: 200px;
+    }
+    .btnS{
+      padding: 20px;
     }
