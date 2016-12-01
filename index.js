@@ -32,7 +32,9 @@ function video(q){
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
-
+        similar(secVid, 'secVid');
+        similar(thVid, 'thVid');
+        similar(frthVid, 'frthVid');
       } else {
           alert("Request unsuccessful");
       }
@@ -66,8 +68,6 @@ function video(q){
               );
               return false;
           });
-          document.getElementById('twitter').href=url;
-          document.getElementById('ogTitle').setAttribute("content", titleY);
         } else {
           alert("Request unsuccessful");
         }
@@ -87,6 +87,26 @@ function video(q){
           var rss = JSON.parse(hell.responseText);
           var views = rss.items[0].statistics.viewCount;
           document.getElementById('viewsCount').innerHTML = (views + ' views')
+        } else {
+          alert("Request unsuccessful");
+        }
+      }
+    };
+    hell.send(null);
+  }
+  function similar(videoId, id){
+    var hell = new XMLHttpRequest;
+    var url2 = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+videoId+"&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
+    hell.open("GET", url2, true);
+    hell.onreadystatechange = function(){
+      if( hell.readyState === 4 ){
+        var status = hell.status;
+        if((status >= 200 && status < 300) || status === 304){
+          var rss = JSON.parse(hell.responseText);
+          var titleY = rss.items[0].snippet.title;
+          document.title = (titleY);
+          id = id + 'De';
+          document.getElementById(id).innerHTML = titleY;
         } else {
           alert("Request unsuccessful");
         }

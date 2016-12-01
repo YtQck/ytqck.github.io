@@ -3,6 +3,7 @@ var y = z.substring(35, z.length);
 document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/'+y+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
 details(y);
 stats(y);
+document.getElementById('linkShare').innerHTML = z;
 function details(videoId){
     var hell = new XMLHttpRequest;
     var url2 = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id="+videoId+"&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
