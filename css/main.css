@@ -34,3 +34,29 @@ input[type="text"]:focus{
 }
 #YTPlayer{
 }
+#title{
+  font-size: 20px;
+  color: red;
+  padding-top: 10px;
+}
+#channel{
+  font-size: 16px;
+  color: grey;
+}
+#viewCount{
+  font-size: 15px;
+}
+#likeCount{
+  padding-top: 10px;
+  font-size: 17px;
+}
+.titleX{
+  color: red;
+}
+.linkTitleSim{
+  text-decoration: none;
+  color: red;
+}
+.linkTitleSim:hover{
+  color: red;
+}

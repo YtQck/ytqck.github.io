@@ -11,7 +11,7 @@ function video(q){
     getEl('YTPlayer', '<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/'+id+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>');
   }
   function vdImage(no){
-    return '<a href="watch.html?'+no+'"><img class="responsive-img" src="https://i.ytimg.com/vi/'+no+'/mqdefault.jpg" /></a>';
+    return '<a href="watch.html?'+no+'"><img class="responsive-img" width="100%" src="https://i.ytimg.com/vi/'+no+'/default.jpg" /></a>';
   }
 
   xhr.onreadystatechange = function() {
@@ -28,13 +28,16 @@ function video(q){
         var secVid = rss.items[1].id.videoId;
         var thVid = rss.items[2].id.videoId;
         var frthVid = rss.items[3].id.videoId;
-        getEl('simHead', 'Similar Video Results');
+        var fifthVid = rss.items[4].id.videoId;
+        //getEl('simHead', 'Similar Video Results');
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
+        getEl('fifthVid', vdImage(fifthVid));
         similar(secVid, 'secVid');
         similar(thVid, 'thVid');
         similar(frthVid, 'frthVid');
+        similar(fifthVid, 'fifthVid');
       } else {
           alert("Request unsuccessful");
       }
@@ -56,18 +59,18 @@ function video(q){
           document.title = (title);
           document.getElementById('title').innerHTML = title;
           var channel = rss.items[0].snippet.channelTitle;
-          document.getElementById('desc').innerHTML = channel;
+          document.getElementById('channel').innerHTML = channel;
           var fbButton = document.getElementById('fb-share-button');
           var url = "https://ytqck.github.io/watch.html?"+videoId;
-          document.getElementById('linkShare').innerHTML = url;
+          //document.getElementById('linkShare').innerHTML = url;
           url += '&quote='+title;
-          fbButton.addEventListener('click', function() {
+          /*fbButton.addEventListener('click', function() {
               window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
                   'facebook-share-dialog',
                   'width=800,height=600'
               );
               return false;
-          });
+          });*/
         } else {
           alert("Request unsuccessful");
         }
@@ -85,8 +88,10 @@ function video(q){
         var status = hell.status;
         if((status >= 200 && status < 300) || status === 304){
           var rss = JSON.parse(hell.responseText);
-          var views = rss.items[0].statistics.viewCount;
-          document.getElementById('viewsCount').innerHTML = (views + ' views')
+          var count = rss.items[0].statistics.viewCount;
+          document.getElementById('viewCount').innerHTML = (count + ' views');
+          count = rss.items[0].statistics.likeCount;
+          document.getElementById('likeCount').innerHTML = ('<i class="material-icons">thumb_up</i> '+count);
         } else {
           alert("Request unsuccessful");
         }
@@ -106,7 +111,7 @@ function video(q){
           var title = rss.items[0].snippet.title;
           document.title = (title);
           id = id + 'De';
-          document.getElementById(id).innerHTML = title;
+          document.getElementById(id).innerHTML = ('<a href="watch.html?'+videoId+'" class="linkTitleSim">'+title+'</a>');
         } else {
           alert("Request unsuccessful");
         }
