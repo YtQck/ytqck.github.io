@@ -1,0 +1,36 @@
+html{
+  background: darkred;
+}
+body{
+}
+/*top.html*/
+.mainLogo{
+  padding-top: 10px;
+  margin: 0;
+}
+input[type="text"]{
+  background: ;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid red;
+  outline: none;
+  background-image: url('../assets/site/search.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+input[type="text"]:hover{
+  border-bottom: 2px solid red;
+}
+input[type="text"]:focus{
+  border-bottom: 2px solid red;
+}
+
+/*player.html*/
+#player{
+  padding: 15px;
+}
+#YTPlayer{
+}
