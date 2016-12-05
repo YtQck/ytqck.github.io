@@ -56,21 +56,20 @@ function video(q){
         if((status >= 200 && status < 300) || status === 304){
           var rss = JSON.parse(hell.responseText);
           var title = rss.items[0].snippet.title;
-          document.title = (title);
+          var description = rss.items[0].snippet.description;
+          og('title', title);
+          //document.getElementById('ogTitle') = (title);
           document.getElementById('title').innerHTML = title;
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('channel').innerHTML = channel;
-          var fbButton = document.getElementById('fb-share-button');
           var url = "https://ytqck.github.io/watch.html?"+videoId;
-          //document.getElementById('linkShare').innerHTML = url;
+          document.getElementById('facebook').href = ('https://www.facebook.com/dialog/feed?%20app_id=758134654325447&%20link='+url+'&%20picture=https://i.ytimg.com/vi/'+videoId+'/default.jpg&%20name='+title+'&%20caption=YtQck&%20description='+description);
+          //document.getElementById('facebook').href = ('https://facebook.com/sharer/sharer.php?u='+url+'&p[title]='+title);
+          document.getElementById('twitter').href = ('https://twitter.com/intent/tweet?text=🎵%20Listen%20to%20'+title+'%20on%20&hashtags=YtQck&url='+url+'&via=midhruvjaink');
+          document.getElementById('plus').href = ('https://plus.google.com/share?url='+url);
+          document.getElementById('linkedin').href = ('https://www.linkedin.com/shareArticle?mini=true&url='+url+'&title='+title+'&summary='+description+'&source=https://ytqck.github.io');
+          document.getElementById('whatsapp').href = ('whatsapp://send?text=🎵%20Listen%20to%20'+title+'%20on%20YtQck.%20Click%20'+url);
           url += '&quote='+title;
-          /*fbButton.addEventListener('click', function() {
-              window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
-                  'facebook-share-dialog',
-                  'width=800,height=600'
-              );
-              return false;
-          });*/
         } else {
           alert("Request unsuccessful");
         }
@@ -119,3 +118,15 @@ function video(q){
     };
     hell.send(null);
   }
+  function og(n, val) {
+   var metas = document.getElementsByTagName('meta');
+   n = 'og:'+n;
+   var con;
+   for (var i=0; i<metas.length; i++) {
+      if (metas[i].getAttribute("name") == n) {
+         con = metas[i].getAttribute("content");
+         con = val;
+      }
+   }
+    return "";
+}

@@ -1,0 +1,14 @@
+{
+  "short_name": "YtQck",
+  "name":"YtQck - YouTube Search Engine",
+  "icons":[
+    {
+      "src":"images/icon.png",
+      "size":"144x144",
+      "type":"image/png"
+    }
+  ],
+  "start_url":"index.html",
+  "display":"standalone",
+  "orientation":"portrait"
+}
