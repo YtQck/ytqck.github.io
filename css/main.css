@@ -52,6 +52,7 @@ input[type="text"]:focus{
 }
 .titleX{
   color: red;
+  font-size: 14px;
 }
 .linkTitleSim{
   text-decoration: none;
@@ -70,6 +71,9 @@ input[type="text"]:focus{
   text-decoration: none;
   color: #fff;
   margin: 0.5em
+}
+.resp-sharing-button__link:hover{
+  color: white;
 }
 
 .resp-sharing-button {
@@ -250,4 +254,20 @@ background-color: #FF6600
 .resp-sharing-button--whatsapp:active {
   background-color: #1DA851;
   border-color: #1DA851;
+}
+a:hover{
+  text-decoration: none;
+}
+
+/*related sec*/
+.titleR{
+  color: red;
+  font-size: 14px;
+}
+img.thumb{
+  padding: 10px;
+}
+.head{
+  color: grey;
+  font-size: 19px;
 }

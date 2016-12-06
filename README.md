@@ -15,6 +15,10 @@
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Quick video play response
 
 ## feturesInDevelopment and betaTesting-
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Related Videos Suggestion.
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Keyboard Shortcuts.
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Cover video player as audio box.
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Genre Specific Covers.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) LogIn with Facebook.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Friends feed.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) See what they like and share.
@@ -25,10 +29,10 @@
 
 ## Platforms-
 #### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Check_Circle-16.png) Website
+#### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Check_Circle-16.png) Progressive Web App for Mobile
 #### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Pause-16.png) Linux App (Ubuntu 12.04+ , Fedora 21+, Debian 8+)
 #### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Pause-16.png) Windows 7+
 #### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Cross_Cricle-16.png) macOS 10.9 (64bit)
-#### ![N|Solid](https://cdn2.iconfinder.com/data/icons/ios-tab-bar/25/Cross_Cricle-16.png) Progressive Web App for Mobile
 
 ## Contribute-
 #### ![N|Solid](https://cdn2.iconfinder.com/data/icons/designer-skills/128/github-repository-svn-manage-files-contribute-branch-16.png) Help coloring the blank hearts ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png)  to red ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png)
