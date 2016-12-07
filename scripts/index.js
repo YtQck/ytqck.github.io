@@ -1,4 +1,6 @@
-var link = window.location.href;
+function YTX(id){
+  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/'+id+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>');
+}
 function video(q){
   var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
   var url = "https://www.googleapis.com/youtube/v3/search?part=id&q="+q+"&type=video&key="+api;
@@ -21,8 +23,6 @@ function video(q){
         var rss = JSON.parse(xhr.responseText);
         var videoId = rss.items[0].id.videoId;
         YT(videoId);
-        link += '~';
-        link += videoId;
         details(videoId);
         stats(videoId);
         var secVid = rss.items[1].id.videoId;
@@ -129,7 +129,7 @@ function video(q){
             id = rss.items[i].id.videoId;
             title = rss.items[i].snippet.title;
             tag = "related"+i;
-            document.getElementById(tag).innerHTML = ('<a href="watch.html?'+id+'"><img class="responsive-img thumb" width="180px" src="https://i.ytimg.com/vi/'+id+'/default.jpg" /><div class="titleR">'+title+'</div></a>');
+            document.getElementById(tag).innerHTML = ('<div onclick="YTX('+id+')"><img class="responsive-img thumb" width="180px" src="https://i.ytimg.com/vi/'+id+'/default.jpg" /><div class="titleR">'+title+'</div></a></div>');
           }
           } else {
             alert("Request");
