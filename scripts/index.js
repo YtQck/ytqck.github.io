@@ -1,5 +1,17 @@
+function frame(y){
+  return '<iframe id="ytplayer" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/'+y+'?color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>'
+}
+var z = window.location.href;
+var y = z.substring(35, z.length);
+if(y===""){
+
+} else{
+  document.getElementById('YTPlayer').innerHTML = (frame(y));
+}
+details(y);
+stats(y);
 function YTX(id){
-  document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/'+id+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>');
+  document.getElementById('YTPlayer').innerHTML = (frame(id));
 }
 function video(q){
   var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
@@ -10,7 +22,7 @@ function video(q){
     document.getElementById(id).innerHTML = (value);
   }
   function YT(id){
-    getEl('YTPlayer', '<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/'+id+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>');
+    getEl('YTPlayer', frame(id));
   }
   function vdImage(no){
     return '<a href="watch.html?'+no+'"><img class="responsive-img" width="120px" src="https://i.ytimg.com/vi/'+no+'/default.jpg" /></a>';
@@ -29,6 +41,7 @@ function video(q){
         var thVid = rss.items[2].id.videoId;
         var frthVid = rss.items[3].id.videoId;
         var fifthVid = rss.items[4].id.videoId;
+        document.getElementById('simHead').innerHTML = ('Similar Videos');
         getEl('secVid', vdImage(secVid));
         getEl('thVid', vdImage(thVid));
         getEl('frthVid', vdImage(frthVid));
@@ -37,6 +50,7 @@ function video(q){
         similar(thVid, 'thVid');
         similar(frthVid, 'frthVid');
         similar(fifthVid, 'fifthVid');
+        document.getElementById('relHead').innerHTML = ('Related Videos')
         related(videoId);
       } else {
           alert("Request unsuccessful");
@@ -61,6 +75,8 @@ function video(q){
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('channel').innerHTML = channel;
           var url = "https://ytqck.github.io/watch.html?"+videoId;
+          var share = document.getElementById('share');
+          share.style.visibility = 'visible';
           document.getElementById('facebook').href = ('https://www.facebook.com/dialog/feed?%20app_id=758134654325447&%20link='+url+'&%20picture=https://i.ytimg.com/vi/'+videoId+'/default.jpg&%20name='+title+'&%20caption=YtQck&%20description='+description);
           document.getElementById('twitter').href = ('https://twitter.com/intent/tweet?text=🎞%20Watch%20'+title+'%20on%20&hashtags=YtQck&url='+url+'&via=midhruvjaink');
           document.getElementById('plus').href = ('https://plus.google.com/share?url='+url);
@@ -116,25 +132,25 @@ function video(q){
   }
 
   function related(videoId){
-    var xhr = new XMLHttpRequest;
-    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId="+videoId+"&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-    xhr.open("GET", url, true);
-    xhr.onreadystatechange = function() {
-      if(xhr.readyState === 4){
-        var status = xhr.status;
-        if((status>=200 && status <300)||status ===304){
-          var rss = JSON.parse(xhr.responseText);
-          var id, i=0, title, tag;
-          for (i; i<5; i++) {
-            id = rss.items[i].id.videoId;
-            title = rss.items[i].snippet.title;
-            tag = "related"+i;
-            document.getElementById(tag).innerHTML = ('<div onclick="YTX('+id+')"><img class="responsive-img thumb" width="180px" src="https://i.ytimg.com/vi/'+id+'/default.jpg" /><div class="titleR">'+title+'</div></a></div>');
-          }
-          } else {
-            alert("Request");
-          }
-        }
-      };
-      xhr.send(null);
-    }
+     var xh = new XMLHttpRequest;
+     var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId="+videoId+"&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
+     xh.open("GET", url, true);
+     xh.onreadystatechange = function() {
+       if(xh.readyState === 4){
+         var status = xh.status;
+         if((status>=200 && status <300)||status ===304){
+           var rss = JSON.parse(xh.responseText);
+           var id, i=0, title, tag;
+           for (i; i<4; i++) {
+             id = rss.items[i].id.videoId;
+             title = rss.items[i].snippet.title;
+             tag = "related"+i;
+             document.getElementById(tag).innerHTML = ('<a href="watch.html?'+id+'"><img class="responsive-img thumb" width="180px" src="https://i.ytimg.com/vi/'+id+'/default.jpg" /><div class="titleR">'+title+'</div></a>');
+           }
+           } else {
+             alert("Request");
+           }
+         }
+       };
+       xh.send(null);
+     }
