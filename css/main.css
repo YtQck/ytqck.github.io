@@ -2,6 +2,7 @@ html{
   background: darkred;
 }
 body{
+
 }
 /*top.html*/
 .mainLogo{
@@ -51,15 +52,15 @@ input[type="text"]:focus{
   font-size: 17px;
 }
 .titleX{
-  color: red;
   font-size: 14px;
+  line-height: 18px;
 }
 .linkTitleSim{
   text-decoration: none;
-  color: red;
+  color: black;
 }
 .linkTitleSim:hover{
-  color: red;
+  color: #167AC6;
 }
 /*sharing buttons*/
 .resp-sharing-button__link,
@@ -261,8 +262,12 @@ a:hover{
 
 /*related sec*/
 .titleR{
-  color: red;
+  color: black;
   font-size: 14px;
+  line-height: 18px;
+}
+.titleR:hover{
+  color: #167AC6;
 }
 img.thumb{
   padding: 10px;

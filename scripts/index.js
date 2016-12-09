@@ -14,51 +14,54 @@ function YTX(id){
   document.getElementById('YTPlayer').innerHTML = (frame(id));
 }
 function video(q){
+  var keyCodeX = this.event.keyCode;
   var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
   var url = "https://www.googleapis.com/youtube/v3/search?part=id&q="+q+"&type=video&key="+api;
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", url, true);
-  function getEl(id, value){
-    document.getElementById(id).innerHTML = (value);
-  }
-  function YT(id){
-    getEl('YTPlayer', frame(id));
-  }
-  function vdImage(no){
-    return '<a href="watch.html?'+no+'"><img class="responsive-img" width="120px" src="https://i.ytimg.com/vi/'+no+'/default.jpg" /></a>';
-  }
-
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      var status = xhr.status;
-      if ((status >= 200 && status < 300) || status === 304) {
-        var rss = JSON.parse(xhr.responseText);
-        var videoId = rss.items[0].id.videoId;
-        YT(videoId);
-        details(videoId);
-        stats(videoId);
-        var secVid = rss.items[1].id.videoId;
-        var thVid = rss.items[2].id.videoId;
-        var frthVid = rss.items[3].id.videoId;
-        var fifthVid = rss.items[4].id.videoId;
-        document.getElementById('simHead').innerHTML = ('Similar Videos');
-        getEl('secVid', vdImage(secVid));
-        getEl('thVid', vdImage(thVid));
-        getEl('frthVid', vdImage(frthVid));
-        getEl('fifthVid', vdImage(fifthVid));
-        similar(secVid, 'secVid');
-        similar(thVid, 'thVid');
-        similar(frthVid, 'frthVid');
-        similar(fifthVid, 'fifthVid');
-        document.getElementById('relHead').innerHTML = ('Related Videos')
-        related(videoId);
-      } else {
-          alert("Request unsuccessful");
-      }
+  if(keyCodeX>=48 && keyCodeX<=90){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    function getEl(id, value){
+      document.getElementById(id).innerHTML = (value);
     }
-  };
-  xhr.send(null);
-   }
+    function YT(id){
+      getEl('YTPlayer', frame(id));
+    }
+    function vdImage(no){
+      return '<a href="watch.html?'+no+'"><img class="responsive-img" width="120px" src="https://i.ytimg.com/vi/'+no+'/default.jpg" /></a>';
+    }
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        var status = xhr.status;
+        if ((status >= 200 && status < 300) || status === 304) {
+          var rss = JSON.parse(xhr.responseText);
+          var videoId = rss.items[0].id.videoId;
+          YT(videoId);
+          details(videoId);
+          stats(videoId);
+          var secVid = rss.items[1].id.videoId;
+          var thVid = rss.items[2].id.videoId;
+          var frthVid = rss.items[3].id.videoId;
+          var fifthVid = rss.items[4].id.videoId;
+          document.getElementById('simHead').innerHTML = ('Similar Videos');
+          getEl('secVid', vdImage(secVid));
+          getEl('thVid', vdImage(thVid));
+          getEl('frthVid', vdImage(frthVid));
+          getEl('fifthVid', vdImage(fifthVid));
+          similar(secVid, 'secVid');
+          similar(thVid, 'thVid');
+          similar(frthVid, 'frthVid');
+          similar(fifthVid, 'fifthVid');
+          document.getElementById('relHead').innerHTML = ('Related Videos')
+          related(videoId);
+        } else {
+            alert("Request unsuccessful");
+        }
+      }
+    };
+    xhr.send(null);
+  }
+}
 
   function details(videoId){
     var hell = new XMLHttpRequest;
@@ -75,6 +78,7 @@ function video(q){
           var channel = rss.items[0].snippet.channelTitle;
           document.getElementById('channel').innerHTML = channel;
           var url = "https://ytqck.github.io/watch.html?"+videoId;
+          //document.getElementById('title').innerHTML += ('<i class="material-icons">share</i>');
           var share = document.getElementById('share');
           share.style.visibility = 'visible';
           document.getElementById('facebook').href = ('https://www.facebook.com/dialog/feed?%20app_id=758134654325447&%20link='+url+'&%20picture=https://i.ytimg.com/vi/'+videoId+'/default.jpg&%20name='+title+'&%20caption=YtQck&%20description='+description);
