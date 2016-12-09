@@ -14,10 +14,8 @@ function YTX(id){
   document.getElementById('YTPlayer').innerHTML = (frame(id));
 }
 function video(q){
-  var keyCodeX = this.event.keyCode;
   var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
   var url = "https://www.googleapis.com/youtube/v3/search?part=id&q="+q+"&type=video&key="+api;
-  if(keyCodeX>=48 && keyCodeX<=90){
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     function getEl(id, value){
@@ -60,7 +58,6 @@ function video(q){
       }
     };
     xhr.send(null);
-  }
 }
 
   function details(videoId){
