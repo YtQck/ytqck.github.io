@@ -3,8 +3,9 @@ function frame(y){
 }
 var z = window.location.href;
 var y = z.substring(35, z.length);
+const defVd = "G3CcBFPMROU";
 if(y===""){
-
+  document.getElementById('YTPlayer').innerHTML = (frame(defVd));
 } else{
   document.getElementById('YTPlayer').innerHTML = (frame(y));
 }
