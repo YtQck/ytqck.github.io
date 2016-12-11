@@ -3,14 +3,13 @@
   "name":"YtQck - YouTube Search Engine",
   "icons":[
     {
-      "src":"images/icon.png",
+      "src":"images/icon144.png",
       "size":"144x144",
       "type":"image/png"
     }
   ],
-  "start_url":"index.html",
+  "start_url":"hello.html",
   "display":"standalone",
   "orientation":"portrait",
-  "theme_color":"darkred",
-  
+  "theme_color": "#303030"
 }
