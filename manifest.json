@@ -1,12 +1,17 @@
 {
-  "short_name": "YtQck",
+  "short_name": "YtQck - YouTube Search Engine",
   "name":"YtQck - YouTube Search Engine",
   "icons":[
     {
-      "src":"images/icon144.png",
-      "size":"144x144",
+      "src":"https://cdn3.iconfinder.com/data/icons/picons-social/57/58-youtube-256.png",
+      "sizes":"256x256",
       "type":"image/png"
-    }
+    },
+    {
+      "src":"https://cdn3.iconfinder.com/data/icons/picons-social/57/58-youtube-128.png",
+      "sizes":"128x128",
+      "type":"image/png"
+    }    
   ],
   "start_url":"index.html",
   "display":"standalone",
