@@ -1,4 +1,3 @@
-
 function frame(y){
   return '<iframe id="ytplayer" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/'+y+'?color=white&showinfo=0&rel=0" allowfullscreen frameborder="0" class="embed-responsive-item"></iframe>'
 }
@@ -23,9 +22,14 @@ function video(q){
         if ((status >= 200 && status < 300) || status === 304) {
           var rss = JSON.parse(xhr.responseText);
           var videoId = rss.items[0].id.videoId;
-          YT(videoId);
-          details(videoId);
-          stats(videoId);
+          //window.location.href += '#'+videoId;
+          //youtubeAudio.dataset.video = null;
+          //youtubeAudio.dataset.video = (videoId);
+          var tagged = ('<div data-video="'+videoId+'" data-autoplay="1" data-loop="1" id="youtube-audio"> </div><script src="scripts/ctrl.js"></script>');
+          //document.getElementById('musicEl').video = tagged;
+          //getEl('musicEl', tagged);
+          //details(videoId);
+          //stats(videoId);
         } else {
             alert("Request unsuccessful");
         }

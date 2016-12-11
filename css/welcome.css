@@ -3,6 +3,7 @@ body {
   margin: 0;
   line-height: 1.4;
   background: #E1E1E1;
+  overflow-x: hidden;
 }
 
 .window {
@@ -77,7 +78,7 @@ body {
   position: absolute;
   height: 100%;
   line-height: 50px;
-  width: 50px;
+  width: 150px;
   height: 50px;
   text-align: center;
   color: #F2C400;
@@ -261,7 +262,6 @@ body {
   color: #F2C400;
 }
 #search{
-  width: 100vw;
   height: 42px;
   background: #303030;
 }
@@ -316,4 +316,6 @@ input[type="text"]{
 #viewCount{
   font-size: 16px;
   padding-left: 10px;
+}
+#YTPlayer{
 }
