@@ -112,7 +112,7 @@ header label {
 header .profile {
   width: 36px;
   height: 36px;
-  background: url("https://avatars1.githubusercontent.com/u/18121502?v=3&s=32") center/contain no-repeat;
+  background: url("../images/dev.jpg") center/contain no-repeat;
   border-radius: 50%;
   margin: 0 15px;
 }
