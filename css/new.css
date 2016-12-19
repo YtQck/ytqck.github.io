@@ -10,6 +10,8 @@
 body {
   background: #F5F5F5;
   font-family: "Roboto", "Helvetica", "sans-serif";
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 header,
@@ -398,7 +400,13 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 #player{
-  padding: 10px;
-  height: 500px;
-  width: 500px;
+  position: relative;
+  padding-bottom: 56.25%;
+}
+#player iframe{
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  top: 3px;
+  left: 10%;
 }
