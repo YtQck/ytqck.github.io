@@ -11,7 +11,6 @@ body {
   background: #F5F5F5;
   font-family: "Roboto", "Helvetica", "sans-serif";
   overflow-x: hidden;
-  overflow-y: visible;
 }
 
 header,
@@ -50,7 +49,6 @@ input {
 }
 
 .ripple {
-  overflow: hidden;
   position: relative;
   -webkit-transform: translateZ(0);
 }
@@ -195,7 +193,6 @@ main {
   z-index: 10;
   transform: translateX(-100%) translateZ(0);
   transition: .3s;
-  overflow-y: auto;
   will-change: transform;
   -webkit-overflow-scrolling: touch;
 }
@@ -395,9 +392,7 @@ main {
 }
 .page{
   width: 100%;
-  position: fixed;
-  will-change: transform;
-  -webkit-overflow-scrolling: touch;
+  position: absolute;
 }
 #player{
   position: relative;
@@ -409,4 +404,52 @@ main {
   height: 70%;
   top: 3px;
   left: 10%;
+}
+.own-lazy img{
+  visibility: visible;
+  height: 100px;
+  width: 100px;
+}
+.home{
+  height: 200px;
+}
+
+/*facebook*/
+.timeline{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 96%;
+  position: fixed;
+  height: auto;
+  background-color: #deeffc;
+}
+.cards{
+  height: 100px;
+  margin: 1%;
+  padding-top: 5px;
+  width: 97%;
+  background-color: white;
+}
+.cardTop{
+  display: inline-flex;
+}
+li.btns{
+  display: inline-flex;
+  align-items: center;
+  width: 30%;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.profileAvatar{
+  padding: 5px;
+  width: 40px;
+  border-radius: 50%;
+  height: 40px;
+}
+.ace{
+  padding: 5px;
+}
+.ace>span{
+  color: #1e88e5;
 }

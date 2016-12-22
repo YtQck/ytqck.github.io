@@ -2,8 +2,10 @@
   <head>
     <title>YtQck</title>
     <link href="css/new.css" rel="stylesheet" />
+    <link href="css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-2.2.4.min.js" type="text/javascript"></script>
     {% include meta.html %}
   </head>
   <body>
@@ -14,7 +16,7 @@
     <div class="page artists">artists</div>
     <div class="page albums">Albums</div>
     <div class="page songs">Songs</div>
-    <div class="page genres">Genres</div>
+    {% include feed.html %}
   </main>
   {content}
   {% include scripts.html %}
