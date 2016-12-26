@@ -19,7 +19,9 @@ function userInfo(uid, displayName, email, photoURL){
   dbref.child("man").child(uid).child("email").set(email);
   dbref.child("man").child(uid).child("photoURL").set(photoURL);
 }
-
+function userVideo(uid, videoId){
+  dbref.child("man").child(uid).child("videoView").push().set(videoId);
+}
 
 //Facebook
 var provider = new firebase.auth.FacebookAuthProvider();
