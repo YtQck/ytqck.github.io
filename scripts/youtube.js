@@ -42,11 +42,12 @@ $(document).ready(function($){
     $(".two").addClass("active");
     $.getJSON(url, function(json){
       var videoID = json.items[0].id.videoId;
+      window.vID = videoID;
       result = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+videoID+'" frameborder="0" allowfullscreen></iframe>';
       players.html(result);
       videoData(videoID);
-      var uid = window.uid
-      userVideo(uid, videoID)
+      userVideo(window.user_id, videoID);
+
     });
   });
 
@@ -58,15 +59,15 @@ $(document).ready(function($){
   $.getJSON(link, function(json){
     for(var i=1; i<12; i++){
       tId = json.items[i].id;
-      st += '<img class="owl-lazy" src="https://i.ytimg.com/vi/'+tId+'/hqdefault.jpg" height="100" width="100" />';
+      st += '<div class="carousel-cell"><img class="carousel-cell-image"data-flickity-lazyload="https://i.ytimg.com/vi/'+tId+'/hqdefault.jpg" height="100" width="100" /></div>';
+      //st += '<img class="owl-lazy" src="https://i.ytimg.com/vi/'+tId+'/hqdefault.jpg" height="100" width="100" />';
     };
-    //mostPopular.html(st);
+    mostPopular.html(st);
   });
 });
 
 
 //working
-var player;
 /*function onPlayerReady(event) {
     var playButton = document.getElementById("play"),
         pauseButton = document.getElementById("pause");

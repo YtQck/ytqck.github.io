@@ -22,7 +22,6 @@ function userInfo(uid, displayName, email, photoURL){
 function userVideo(uid, videoId){
   dbref.child("man").child(uid).child("videoView").push().set(videoId);
 }
-
 //Facebook
 var provider = new firebase.auth.FacebookAuthProvider();
 provider.addScope('user_friends');

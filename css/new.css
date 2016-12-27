@@ -504,3 +504,31 @@ li.btns{
   background-color: #5B7BD5;
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
+
+/* carousel */
+.carousel {
+  background: #FAFAFA;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 400px;
+  margin-right: 10px;
+  background: transparent;
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+          transition: opacity 0.4s;
+}
+
+/* fade in lazy loaded image */
+.carousel-cell-image.flickity-lazyloaded,
+.carousel-cell-image.flickity-lazyerror {
+  opacity: 1;
+}

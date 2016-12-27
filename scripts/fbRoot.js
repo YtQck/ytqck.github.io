@@ -1,8 +1,7 @@
 var provider = new firebase.auth.FacebookAuthProvider();
-provider.addScope('user_friends');
+//provider.addScope('user_friends');
 var fb_login = $('#fblogin');
 function login(){
-
     firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       var token = result.credential.accessToken;
@@ -12,7 +11,6 @@ function login(){
       var email = user.email;
       var photoURL = user.photoURL;
       var uid = user.uid;
-      window.uid = uid;
       userInfo(uid, displayName, email, photoURL);
     }).catch(function(error) {
       // Handle Errors here.
@@ -103,9 +101,12 @@ function login(){
       if (user) {
         // User is signed in.
         // [START_EXCLUDE]
-        var uid = window.uid;
+        var displayName = user.displayName;
+        var uid = user.uid;
+        window.user_id = uid;
         //userVideo(uid);
-        $("#quickstart-sign-in-status").html("Working on the feeds!<br />Thanks for signing in!");
+        var result = "<h3> Thanks "+displayName+" for signing up!<br> We are working on the feeds!</h3>";
+        $("#quickstart-sign-in-status").html(result);
         // [END_EXCLUDE]
       } else {
         // User is signed out.
