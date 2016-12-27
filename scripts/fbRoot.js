@@ -44,6 +44,6 @@
   FB.api('/me', 'GET', {fields: 'first_name,email,last_name,name,id,picture.width(150).height(150)'}, function(response) {
    //document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
   var photoURL = response.picture.data.url;
-  userInfo(id, name, email, photoURL, first_name);
+  userInfo(response.id, response.name, response.email, photoURL, response.first_name);
   });
  }
