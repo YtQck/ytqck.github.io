@@ -13,11 +13,12 @@ dbref = firebase.database().ref();
 function videoData(id){
   dbref.child("videos").push().set(id);
 }
-function userInfo(uid, displayName, email, photoURL){
+function userInfo(uid, displayName, email, photoURL, first_name){
   dbref.child("man").child(uid);
   dbref.child("man").child(uid).child("displayName").set(displayName);
   dbref.child("man").child(uid).child("email").set(email);
   dbref.child("man").child(uid).child("photoURL").set(photoURL);
+  dbref.child("man").child(uid).child("first_name").set(first_name);
 }
 function userVideo(uid, videoId){
   dbref.child("man").child(uid).child("videoView").push().set(videoId);

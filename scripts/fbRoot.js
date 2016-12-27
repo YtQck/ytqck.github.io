@@ -1,121 +1,48 @@
-var provider = new firebase.auth.FacebookAuthProvider();
-//provider.addScope('user_friends');
-var fb_login = $('#fblogin');
-function login(){
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      var displayName = user.displayName;
-      var email = user.email;
-      var photoURL = user.photoURL;
-      var uid = user.uid;
-      userInfo(uid, displayName, email, photoURL);
-    }).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-}
-
-
-
-  function checkLoginState(event) {
-    if (event.authResponse) {
-      // User is signed-in Facebook.
-      var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
-        unsubscribe();
-        // Check if we are already signed-in Firebase with the correct user.
-        if (!isUserEqual(event.authResponse, firebaseUser)) {
-          // Build Firebase credential with the Facebook auth token.
-          // [START facebookcredential]
-          var credential = firebase.auth.FacebookAuthProvider.credential(
-              event.authResponse.accessToken);
-          // [END facebookcredential]
-          // Sign in with the credential from the Facebook user.
-          // [START authwithcred]
-          firebase.auth().signInWithCredential(credential).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // [START_EXCLUDE]
-            if (errorCode === 'auth/account-exists-with-different-credential') {
-              alert('You have already signed up with a different auth provider for that email.');
-              // If you are using multiple auth providers on your app you should handle linking
-              // the user's accounts here.
-            } else {
-              console.error(error);
-            }
-            // [END_EXCLUDE]
-          });
-          // [END authwithcred]
-        } else {
-          // User is already signed-in Firebase with the correct user.
-        }
-      });
-    } else {
-      // User is signed-out of Facebook.
-      // [START signout]
-      firebase.auth().signOut();
-      // [END signout]
-    }
-  }
-  // [END facebookcallback]
-  /**
-   * Check that the given Facebook user is equals to the  given Firebase user
-   */
-  // [START checksameuser]
-  function isUserEqual(facebookAuthResponse, firebaseUser) {
-    if (firebaseUser) {
-      var providerData = firebaseUser.providerData;
-      for (var i = 0; i < providerData.length; i++) {
-        if (providerData[i].providerId === firebase.auth.FacebookAuthProvider.PROVIDER_ID &&
-            providerData[i].uid === facebookAuthResponse.userID) {
-          // We don't need to re-auth the Firebase connection.
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-  // [END checksameuser]
-  /**
-   * initApp handles setting up UI event listeners and registering Firebase auth listeners:
-   *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
-   *    out, and that is where we update the UI.
-   */
-  function initApp() {
-    // Listening for auth state changes.
-    // [START authstatelistener]
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        // [START_EXCLUDE]
-        var displayName = user.displayName;
-        var uid = user.uid;
-        window.user_id = uid;
-        //userVideo(uid);
-        var result = "<h3> Thanks "+displayName+" for signing up!<br> We are working on the feeds!</h3>";
-        $("#quickstart-sign-in-status").html(result);
-        // [END_EXCLUDE]
+// initialize and setup facebook js sdk
+ window.fbAsyncInit = function() {
+     FB.init({
+       appId      : '758134654325447',
+       xfbml      : true,
+       version    : 'v2.5'
+     });
+     FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+       document.getElementById('status').innerHTML = 'We are connected.';
+       document.getElementById('login').style.visibility = 'hidden';
+      } else if (response.status === 'not_authorized') {
+       document.getElementById('status').innerHTML = 'We are not logged in.'
       } else {
-        // User is signed out.
-        // [START_EXCLUDE]
-        var signedOut = '<button class="loginBtn loginBtn--facebook" onclick="login()">Login with Facebook</button>';
-        $("#quickstart-sign-in-status").html(signedOut);
-        // [END_EXCLUDE]
+       document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
       }
-    });
-    // [END authstatelistener]
-  }
-  initApp();
+     });
+ };
+ (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+ // login with facebook with extra permissions
+ function login() {
+  FB.login(function(response) {
+   if (response.status === 'connected') {
+       document.getElementById('status').innerHTML = 'We are connected.';
+       document.getElementById('login').style.visibility = 'hidden';
+      } else if (response.status === 'not_authorized') {
+       document.getElementById('status').innerHTML = 'We are not logged in.'
+      } else {
+       document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+      }
+  }, {scope: 'email'});
+ }
+
+ // getting basic user info
+ function getInfo() {
+  FB.api('/me', 'GET', {fields: 'first_name,email,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+   //document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
+  var photoURL = response.picture.data.url;
+  userInfo(id, name, email, photoURL, first_name);
+  });
+ }
