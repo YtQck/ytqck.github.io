@@ -34,10 +34,17 @@ function hash_search(){
   var url = window.location.href;
   var isLink = url.indexOf("127.0.0.1:4000/");
   if (isLink != -1) {
+    if(url.indexOf('#')>-1){
       var query = url.slice(url.indexOf("#") + 1 , url.length);
+      if(query === ''){
+        query = "YtQck";
+      }
+      search_videoID(query);
+      toggle_player_pager();
+    }else{
+      //do nothing
+    }
   }
-  search_videoID(query);
-  toggle_player_pager();
 }
 
 function search_videoID(query){
@@ -45,36 +52,23 @@ function search_videoID(query){
   var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q='+q+'&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw';
   $.getJSON(url, function(json){
     var videoID = json.items[0].id.videoId;
+    console.log(videoID);
+    window.a = videoID;
+    load_iframe(videoID);
     //onYouTubeIframeAPIReady(videoID);
-    function onYouTubeIframeAPIReady(id) {
-      var player;
-      player = new YT.Player('player', {
-        videoId: videoId,
-        playerVars: {
-          'autoplay': 1,
-          'controls': 0
-        },
-        events: {
-          'onReady': onPlayerReady,
-          //'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
-          //'onStateChange': onPlayerStateChange,
-          //'onError': onPlayerError
-        }
-      });
-    }
+
     //result = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+videoID+'" frameborder="0" allowfullscreen></iframe><!-- Colored FAB button with ripple --><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">share</i></button>';
     //players.html(result);
     videoData(videoID);
     //userVideo(window.user_id, videoID);
   });
 }
-
+var player;
 /*function onYouTubeIframeAPIReady(id) {
-  var player;
   player = new YT.Player('player', {
-    videoId: id,
+    videoId: window.a,
     playerVars: {
-      'autoplay': 1,
+      'autoplay': 0,
       'controls': 0
     },
     events: {
@@ -86,10 +80,18 @@ function search_videoID(query){
   });
 }
 
-function onPlayerReady(event) {
-   //document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
-   console.log("played");
+function onYouTubePlayerReady() {
+   document.getElementById('player').style.borderColor = '#FF6D00';
+   alert("played");
  }*/
+
+function load_iframe(a){
+  var result = '';
+  var players = $('#player');
+  result = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+a+'?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe><!-- Colored FAB button with ripple --><button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">share</i></button>';
+  console.log(result);
+  players.html(result);
+}
 
 function toggle_player_pager(){
   $(".page").removeClass("hactive");
@@ -99,24 +101,24 @@ function toggle_player_pager(){
 }
 
 $(document).ready(function($){
-  //hash_search();
+  hash_search();
   //input hashing to url
   $('#input').keyup(function(e){
     var q = $('#input').val().trim();
     var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q='+q+'&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw';
     var qe = encodeURIComponent(q);
     window.location.href = "#"+qe;
-    //hash_search();
+    hash_search();
     var result = '';
     var players = $('#player');
-    toggle_player_pager();
-    $.getJSON(url, function(json){
+    //toggle_player_pager();
+    /*$.getJSON(url, function(json){
       var videoID = json.items[0].id.videoId;
       result = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+videoID+'" frameborder="0" allowfullscreen></iframe>';
       players.html(result);
       videoData(videoID);
       //userVideo(window.user_id, videoID);
-    });
+    });*/
     var details_link = '';
     //var id = window.vID;
 
