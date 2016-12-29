@@ -506,8 +506,11 @@ li.btns{
 }
 
 /* carousel */
+/*#mostPopular{
+  padding-top: 100px;
+}
 .carousel {
-  background: #FAFAFA;
+  background: #F5F5F5;
 }
 
 .carousel-cell {
@@ -527,8 +530,37 @@ li.btns{
           transition: opacity 0.4s;
 }
 
-/* fade in lazy loaded image */
 .carousel-cell-image.flickity-lazyloaded,
 .carousel-cell-image.flickity-lazyerror {
   opacity: 1;
+} */
+
+.container {
+  max-width: 400px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.container div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  position: absolute;
+}
+
+.next {
+  right: 5px;
+}
+
+.prev {
+  left: 5px;
 }

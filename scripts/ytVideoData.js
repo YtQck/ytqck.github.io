@@ -10,9 +10,17 @@ firebase.initializeApp(config);
 
 var dbref;
 dbref = firebase.database().ref();
+
 function videoData(id){
-  dbref.child("videos").push().set(id);
+  var url = 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id='+id+'&key='+api;
+  $.getJSON(url, function(json){
+    var videoTitle = json.items[0].snippet.title;
+    var channelTitle = json.items[0].snippet.channelTitle;
+    dbref.child("videos").child(id).child("title").set(videoTitle);
+    dbref.child("videos").child(id).child("channel").set(channelTitle);
+  });
 }
+
 function userInfo(uid, displayName, email, photoURL, first_name){
   dbref.child("man").child(uid);
   dbref.child("man").child(uid).child("displayName").set(displayName);
@@ -20,9 +28,11 @@ function userInfo(uid, displayName, email, photoURL, first_name){
   dbref.child("man").child(uid).child("photoURL").set(photoURL);
   dbref.child("man").child(uid).child("first_name").set(first_name);
 }
+
 function userVideo(uid, videoId){
   dbref.child("man").child(uid).child("videoView").push().set(videoId);
 }
+
 //Facebook
 var provider = new firebase.auth.FacebookAuthProvider();
 provider.addScope('user_friends');
