@@ -95,7 +95,7 @@ $(function() {
 
 	// PROFILE MENU
 
-	$('.profile').on('click', function() {
+	$('.profileImage').on('click', function() {
 		$('.account').toggleClass('active');
 	});
 

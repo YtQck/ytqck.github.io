@@ -109,10 +109,10 @@ header label.close {
 header label {
   margin-left: auto;
 }
-header .profile {
+header .profileImage {
   width: 36px;
   height: 36px;
-  background: url("../images/dev.jpg") center/contain no-repeat;
+  /*background: url("../images/dev.jpg") center/contain no-repeat;*/
   border-radius: 50%;
   margin: 0 15px;
 }
