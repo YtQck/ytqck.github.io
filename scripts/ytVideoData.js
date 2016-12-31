@@ -29,7 +29,7 @@ function userInfo(uid, displayName, email, photoURL, first_name){
   dbref.child("man").child(uid).child("first_name").set(first_name);
 }
 
-function userVideo(uid, videoId){
+function userVideo(videoId){
   dbref.child("man").child(uid).child("videoView").push().set(videoId);
 }
 

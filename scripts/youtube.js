@@ -51,7 +51,7 @@ function search_videoID(query){
   var q = decodeURIComponent(query);
   var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q='+q+'&type=video&key='+api;
   $.getJSON(url, function(json){
-    var videoID = json.items[0].id.videoId;
+    videoID = json.items[0].id.videoId;
     window.a = videoID;
     load_iframe(videoID);
     videoData(videoID);
