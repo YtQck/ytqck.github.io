@@ -14,8 +14,9 @@ dbref = firebase.database().ref();
 function videoData(id){
   var url = 'https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id='+id+'&key='+api;
   $.getJSON(url, function(json){
-    var videoTitle = json.items[0].snippet.title;
-    var channelTitle = json.items[0].snippet.channelTitle;
+    videoTitle = json.items[0].snippet.title;
+    channelTitle = json.items[0].snippet.channelTitle;
+    $(".titleCard").html(videoTitle);
     dbref.child("videos").child(id).child("title").set(videoTitle);
     dbref.child("videos").child(id).child("channel").set(channelTitle);
   });

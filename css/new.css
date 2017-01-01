@@ -395,7 +395,6 @@ main {
   position: absolute;
 }
 #player{
-  position: relative;
   padding-bottom: 56.25%;
 }
 #player iframe{
@@ -505,62 +504,14 @@ li.btns{
   background-image: linear-gradient(#5B7BD5, #4864B1);
 }
 
-/* carousel */
-/*#mostPopular{
-  padding-top: 100px;
-}
-.carousel {
-  background: #F5F5F5;
-}
 
-.carousel-cell {
-  width: 66%;
-  height: 400px;
-  margin-right: 10px;
-  background: transparent;
+/*cards*/
+#cARD{
+  width: 100%;
 }
-
-.carousel-cell-image {
-  display: block;
-  max-height: 100%;
-  margin: 0 auto;
-  max-width: 100%;
-  opacity: 0;
-  -webkit-transition: opacity 0.4s;
-          transition: opacity 0.4s;
-}
-
-.carousel-cell-image.flickity-lazyloaded,
-.carousel-cell-image.flickity-lazyerror {
-  opacity: 1;
-} */
-
-.container {
-  max-width: 400px;
-  background-color: black;
-  margin: 0 auto;
-  text-align: center;
+.demo-card-wide{
   position: relative;
-}
-.container div {
-  background-color: white;
-  width: 100%;
-  display: inline-block;
-  display: none;
-}
-.container img {
-  width: 100%;
-  height: auto;
-}
-
-button {
-  position: absolute;
-}
-
-.next {
-  right: 5px;
-}
-
-.prev {
-  left: 5px;
+  left: 10%;
+  width: 80%;
+  padding-top: 20px;
 }

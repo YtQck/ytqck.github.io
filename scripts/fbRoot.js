@@ -54,5 +54,6 @@ function getInfo() {
 }
 
 function userVideo(){
-  dbref.child("man").child(userid).child("videoLikes").push().set(videoID);
+  dbref.child("man").child(userid).child(videoID).child("title").set(videoTitle);
+  dbref.child("man").child(userid).child(videoID).child("channel").set(channelTitle);
 }

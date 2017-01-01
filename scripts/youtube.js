@@ -32,7 +32,7 @@ var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 //search from hash{}
 function hash_search(){
   var url = window.location.href;
-  var isLink = url.indexOf("ytqck.github.io");
+  var isLink = url.indexOf("ytqck.github.io/");
   if (isLink != -1) {
     if(url.indexOf('#')>-1){
       var query = url.slice(url.indexOf("#") + 1 , url.length);
@@ -80,15 +80,10 @@ $(document).ready(function($){
     var qe = encodeURIComponent(q);
     window.location.href = "#"+qe;
     hash_search();
-    var result = '';
-    var players = $('#player');
-    var details_link = '';
-    //var id = window.vID;
-
   });
 });
 
-/*  //mostPopular thumbnails
+/*  //mostPopular thu mbnails
   var mostPopular = $('#mostPopular');
   var link = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&chart=mostPopular&videoCategoryById=10&regionCode=IN&maxResults=25&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw';
   var tId;
