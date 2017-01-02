@@ -32,7 +32,7 @@ var api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 //search from hash{}
 function hash_search(){
   var url = window.location.href;
-  var isLink = url.indexOf("http://127.0.0.1:4000/");
+  var isLink = url.indexOf("ytqck.github.io");
   if (isLink != -1) {
     if(url.indexOf('#')>-1){
       var query = url.slice(url.indexOf("#") + 1 , url.length);
