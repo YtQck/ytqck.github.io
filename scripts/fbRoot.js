@@ -14,7 +14,7 @@ window.fbAsyncInit = function() {
      document.getElementById('login').style.visibility = 'hidden';
      getInfo();
     } else if (response.status === 'not_authorized') {
-     document.getElementById('status').innerHTML = 'We are not logged in.'
+     document.getElementById('status').innerHTML = 'We are not logged in.';
     } else {
      document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
     }
@@ -36,11 +36,16 @@ FB.login(function(response) {
      document.getElementById('login').style.visibility = 'hidden';
      getInfo();
     } else if (response.status === 'not_authorized') {
-     document.getElementById('status').innerHTML = 'We are not logged in.'
+     document.getElementById('status').innerHTML = 'We are not logged in.';
     } else {
      document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
     }
 }, {scope: 'email'});
+}
+function sortMethod(a, b) {
+  var x = a.name.toLowerCase();
+  var y = b.name.toLowerCase();
+  return ((x < y) ? -1 : ((x > y) ? 1 : 0));
 }
 
 // getting basic user info
@@ -50,6 +55,15 @@ function getInfo() {
   changeAvatar(photoURL);
   userid = response.id;
   userInfo(response.id, response.name, response.email, photoURL, response.first_name);
+  });
+  FB.api('/me/friends', 'GET', function(response) {
+  var friends_data = response.data.sort(sortMethod);
+  console.log(friends_data);
+  var result = '';
+  for(var i=0; i<friends_data.length; i++){
+    result += '1.'+friends_data[i].id+' '+friends_data[i].name+' % ';
+  }
+  console.log(result);
   });
 }
 
