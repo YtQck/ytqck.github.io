@@ -58,11 +58,14 @@ function getInfo() {
   });
   FB.api('/me/friends', 'GET', function(response) {
   var friends_data = response.data.sort(sortMethod);
+  console.log("s-1");
   console.log(friends_data);
   var result = '';
   for(var i=0; i<friends_data.length; i++){
     result += '1.'+friends_data[i].id+' '+friends_data[i].name+' % ';
+    console.log("s-2");
   }
+  console.log("s-3");
   console.log(result);
   });
 }
