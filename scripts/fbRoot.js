@@ -57,7 +57,9 @@ function getInfo() {
   userInfo(response.id, response.name, response.email, photoURL, response.first_name);
   });
   FB.api('/me/friends', 'GET', function(response) {
-  var friends_data = response.data.sort(sortMethod);
+  var friends_data = response.friends.data;
+  console.log(friends_data.length);
+  console.log(friends_data);
   console.log("s-1");
   console.log(friends_data);
   var result = '';
