@@ -26,6 +26,28 @@ a{
   text-decoration: none;
   color: inherit;
 }
+#mobile{
+  display: none;
+}
+@media only screen and (max-width:768px){
+  #desktop{
+    display: none;
+  }
+  #mobile{
+    display: block;
+    height: 100vh;
+    position: relative;
+  }
+  #mobile-frame{
+    position: absolute;
+    top: 40%;
+    left: 15%
+  }
+  .title{
+    margin: 0;
+    vertical-align: middle;
+  }
+}
 #top_bar{
   height: 30px;
   margin-top: -7px;

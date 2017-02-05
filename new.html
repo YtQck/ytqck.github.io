@@ -37,41 +37,62 @@
 </head>
 
 <body>
-  <div id="top_bar" class="padding-10 grey-text">
-    <i class="fa fa-home"></i>
-    <input class="font-size-20 search margin-left-10 grey-text" id="input" type="search" placeholder="Search">
-    <i class="fa fa-search search_bar_icons search_icon"></i>
-    <i class="fa fa-times search_bar_icons cross_icon"></i>
-    <span class="title font-size-30">YtQck</span>
-    <div id="user">
-      <i class="user_image_main"><img src="images/dev.png" alt="user images" class="user_image responsive img-circle" /></i>
-      <span class="user_name">Guest</span>
+    <div id="desktop">
+        <div id="top_bar" class="padding-10 grey-text">
+            <i class="fa fa-home"></i>
+            <input class="font-size-20 search margin-left-10 grey-text" id="input" type="search" placeholder="Search">
+            <i class="fa fa-search search_bar_icons search_icon"></i>
+            <i class="fa fa-times search_bar_icons cross_icon"></i>
+            <span class="title font-size-30">YtQck</span>
+            <div id="user">
+                <i class="user_image_main"><img src="images/dev.png" alt="user images" class="user_image responsive img-circle" /></i>
+                <span class="user_name">Guest</span>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="colu col1">
+                <div id="menu" class="grey-text">
+                    <ul id="menu_list">
+                        <a href="#">
+                            <li><i class="fa fa-cube menu_icons"></i><span class="menu_title">Browse</span></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-users menu_icons"></i><span class="menu_title">Activity</span></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-podcast menu_icons"></i><span class="menu_title">Radio</span></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-flash menu_icons"></i><span class="menu_title">Top List</span></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-inbox menu_icons"></i><span class="menu_title">Messages</span></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-tablet menu_icons"></i><span class="menu_title">Devices</span></li>
+                        </a>
+                    </ul>
+                </div>
+                <div id="musicArt">
+                    <img src="http://placehold.it/293?text=Channel+art" id="channelArt" />
+                </div>
+                <div id="musicTitle"></div>
+            </div>
+            <div class="colu col2"></div>
+            <div class="colu col3"></div>
+        </div>
+
+        <div id="player">
+
+        </div>
     </div>
-  </div>
-
-  <div class="main">
-    <div class="colu col1">
-      <div id="menu" class="grey-text">
-        <ul id="menu_list">
-          <a href="#"><li><i class="fa fa-cube menu_icons"></i><span class="menu_title">Browse</span></li></a>
-          <a href="#"><li><i class="fa fa-users menu_icons"></i><span class="menu_title">Activity</span></li></a>
-          <a href="#"><li><i class="fa fa-podcast menu_icons"></i><span class="menu_title">Radio</span></li></a>
-          <a href="#"><li><i class="fa fa-flash menu_icons"></i><span class="menu_title">Top List</span></li></a>
-          <a href="#"><li><i class="fa fa-inbox menu_icons"></i><span class="menu_title">Messages</span></li></a>
-          <a href="#"><li><i class="fa fa-tablet menu_icons"></i><span class="menu_title">Devices</span></li></a>
-        </ul>
+    <div id="mobile">
+      <div id="mobile-frame">
+        <span class="title font-size-30 grey-text">YtQck</span>
+        <p class="red-text center">Working on the mobile layout</p>
       </div>
-      <div id="musicArt">
-        <img src="http://placehold.it/293?text=Channel+art" id="channelArt" />
-      </div>
-      <div id="musicTitle"></div>
     </div>
-    <div class="colu col2"></div>
-    <div class="colu col3"></div>
-  </div>
-
-  <div id="player">
-
-  </div>
 </body>
+
 </html>
