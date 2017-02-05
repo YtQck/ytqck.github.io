@@ -4,17 +4,17 @@
 <head>
     <title>YtQck - The YouTube Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
-    <link href='assets/site/newfav.png' rel='icon' type='image/png' />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link href="assets/site/newfav.png" rel="icon" type="image/png" />
     <link rel="manifest" href="manifest.json">
     <!--website meta-->
     <meta name="description" content="YtQck is a mini YouTube Player that plays your desired song, trailer or any YouTube video instantly - saving more than 50% of data and streaming speed. No ads." />
     <meta name="author" content="midhruvjaink" />
     <!--robot-->
-    <meta content='index, follow' name='robots' />
-    <meta content='1 days' name='revisit-after' />
-    <meta content='all' name='robots' />
-    <meta content='all' name='googlebot' />
+    <meta content="index, follow" name="robots" />
+    <meta content="1 days" name="revisit-after" />
+    <meta content="all" name="robots" />
+    <meta content="all" name="googlebot" />
     <!--social links-->
     <meta property="og:title" content="YtQck" />
     <meta property="og:site_name" content="YtQck" />
@@ -40,7 +40,7 @@
     <div id="desktop">
         <div id="top_bar" class="padding-10 grey-text">
             <i class="fa fa-home"></i>
-            <input class="font-size-20 search margin-left-10 grey-text" id="input" type="search" placeholder="Search">
+            <input class="search margin-left-10 grey-text" id="input" type="search" placeholder="Search">
             <i class="fa fa-search search_bar_icons search_icon"></i>
             <i class="fa fa-times search_bar_icons cross_icon"></i>
             <span class="title font-size-30">YtQck</span>
@@ -75,23 +75,33 @@
                     </ul>
                 </div>
                 <div id="musicArt">
-                    <img src="http://placehold.it/293?text=Channel+art" id="channelArt" />
+                    <img src="https://i.ytimg.com/vi/Jrv95rcDR5Q/hqdefault.jpg" id="channelArt" />
                 </div>
-                <div id="musicTitle"></div>
+                <div id="musicTitle">
+                    <span id="video_name" class="white-text padding-left-10">Video Name</span>
+                </div>
             </div>
             <div class="colu col2"></div>
             <div class="colu col3"></div>
         </div>
 
-        <div id="player">
-
+        <div id="player_bar">
+            <i class="fa fa-step-backward player_icons"></i>
+            <i class="fa fa-pause-circle-o player_icons play"></i>
+            <i class="fa fa-step-forward player_icons"></i>
+            <input type="range" min="0" max="100" step="1" value="90" id="volume" />
+            <i class="fa fa-volume-up grey-text"></i>
+            <span class="time_complete time white-text">1:30</span>
+            <input type="range" min="0" max="100" step="1" value="10" id="seekbar" />
+            <span class="total_time time white-text">4:30</span>
+            <i class="fa fa-repeat padding-left-10 grey-text"></i>
         </div>
     </div>
     <div id="mobile">
-      <div id="mobile-frame">
-        <span class="title font-size-30 grey-text">YtQck</span>
-        <p class="red-text center">Working on the mobile layout</p>
-      </div>
+        <div id="mobile-frame">
+            <span class="title font-size-30 grey-text">YtQck</span>
+            <p class="red-text center">Working on the mobile layout</p>
+        </div>
     </div>
 </body>
 
