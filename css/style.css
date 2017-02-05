@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+body,html{
+  background: #27272B;
+  font-family: 'Sansita', sans-serif;
+}
+body{
+  position: relative;
+  margin: 0;
+  min-width: 100vh;
+  font-family: 'Source Code Pro';
+
+}
+
+#top_bar{
+  border-bottom: 1px solid #36373D;
+  margin-top: -7px;
+  height: 30px;
+}
+input[type=search]{
+  background: rgba(255,255,255,0.1);
+  border: none;
+  outline: none;
+  height: 25px;
+  padding-left: 35px;
+}
+.search{
+  border-radius: 30px;
+  position: relative;
+  margin-top: 7px;
+}
+.search_bar_icons{
+  float: none;
+  position: absolute;
+  z-index: 2;
+  margin-top:10px;
+}
+.search_icon{
+  margin-left: -277px;
+}
+.cross_icon{
+  margin-left: -23px;
+  font-weight: 100;
+}
+.title{
+  display: inline-block;
+  left: 22%;
+  font-family: 'Architects Daughter';
+  font-weight: 400;
+  margin: 0 auto;
+  position: relative;
+  width: 15vw;
+  padding-left: 32px;
+  background: url(../assets/site/newfav.png) no-repeat -2px;
+}
+#user{
+  width: 100px;
+  float: right;
+  position: relative;
+}
+.user_image_main{
+  margin-right: 5px;
+  margin-top: 12px;
+}
+.user_image{
+  top: -2%;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  border: 1px solid #36373D;
+}
+.user_name{
+  
+}
