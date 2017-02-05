@@ -1,37 +1,58 @@
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 body,html{
+  overflow: hidden;
+
   background: #27272B;
+
   font-family: 'Sansita', sans-serif;
 }
 body{
   position: relative;
-  margin: 0;
+
   min-width: 100vh;
+  margin: 0;
+
   font-family: 'Source Code Pro';
-
 }
-
+::-moz-selection {
+    color: #FBFBFC;
+    background: #F42F42;
+}
+::selection {
+    color: #FBFBFC;
+    background: #F42F42;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
 #top_bar{
-  border-bottom: 1px solid #36373D;
-  margin-top: -7px;
   height: 30px;
+  margin-top: -7px;
+
+  border-bottom: 1px solid #36373D;
 }
 input[type=search]{
-  background: rgba(255,255,255,0.1);
-  border: none;
-  outline: none;
   height: 25px;
   padding-left: 35px;
+
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
 }
 .search{
-  border-radius: 30px;
   position: relative;
+
   margin-top: 7px;
+
+  border-radius: 30px;
 }
 .search_bar_icons{
-  float: none;
   position: absolute;
   z-index: 2;
+
+  float: none;
+
   margin-top:10px;
 }
 .search_icon{
@@ -39,35 +60,114 @@ input[type=search]{
 }
 .cross_icon{
   margin-left: -23px;
+
   font-weight: 100;
 }
 .title{
-  display: inline-block;
+  position: relative;
   left: 22%;
+
+  display: inline-block;
+
+  width: 15vw;
+  margin: 0 auto;
+  padding-left: 32px;
+
+  background: url(../assets/site/newfav.png) no-repeat -2px;
+
   font-family: 'Architects Daughter';
   font-weight: 400;
-  margin: 0 auto;
-  position: relative;
-  width: 15vw;
-  padding-left: 32px;
-  background: url(../assets/site/newfav.png) no-repeat -2px;
 }
 #user{
-  width: 100px;
-  float: right;
   position: relative;
+
+  float: right;
+
+  width: 100px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
 }
 .user_image_main{
-  margin-right: 5px;
   margin-top: 12px;
+  margin-right: 5px;
 }
 .user_image{
   top: -2%;
-  width: 20px;
-  height: 20px;
+
+  width: 24px;
+  height: 24px;
   margin-top: 10px;
+
   border: 1px solid #36373D;
 }
 .user_name{
-  
+  font-size: 20px;
+  margin-top: -2px;
+  display: inline-block;
+  vertical-align: super;
+  line-height: normal;
+}
+
+.main{
+  height: 85vh;
+  background: inherit;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+.colu{
+  position: relative;
+  height: inherit;
+  float: left;
+  height: inherit;
+}
+.col1{
+  background: #2d2d30;
+  width: 21.4285714286%;
+}
+.col2{
+  background: green;
+  width: 64.2857142857%;
+}
+.col3{
+  background: blue;
+  width: 14.2857142857%;
+}
+#menu{
+  position: relative;
+  height: 36.3%;
+}
+#menu_list{
+  font-weight: 100;
+  list-style-type: none;
+  padding-top: 10px;
+}
+.menu_icons{
+  text-align: center;
+  padding-left: -2px;
+  color: #F42F42;
+  padding: 0 10px 15px 0;
+  width: 15px;
+  text-align: center;
+}
+.menu_title{
+  padding-left: 5px;
+}
+#musicArt{
+  background: inherit;
+  position: relative;
+  height: 51%;
+}
+#channelArt{
+  outline: 2px solid white;
+  outline-offset: -6px;
+}
+#musicTitle{
+  height: 10%;
+  position: relative;
+  background: yellow;
+}
+#player{
+  background-color: red;
+  height: 100px;
 }
