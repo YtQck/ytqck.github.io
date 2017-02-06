@@ -34,6 +34,7 @@
     <link href="https://cdn.rawgit.com/midhruvjaink/earth/v-0/css/earth.little.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -82,13 +83,36 @@
                 </div>
             </div>
             <div class="colu col2">
-              <div class="channel_cover">
-                <div id="cover"></div>
-                <div id="channelArt">
-                  <img src="https://i.ytimg.com/vi/Jrv95rcDR5Q/hqdefault.jpg" class="img-circle" id="channelIcon" />
-                  <span id="channelName" class="white-text font-size-40">Channel Name</span>
+                <div class="channel_cover">
+                    <div id="cover"></div>
+                    <div id="channelArt">
+                        <img src="https://i.ytimg.com/vi/Jrv95rcDR5Q/hqdefault.jpg" class="img-circle shadow-1" id="channelIcon" />
+                        <span id="channelName" class="white-text font-size-40">Channel Name</span>
+                    </div>
                 </div>
-              </div>
+
+                <div id="cover_bottom">
+                    <div class="navigation channel_navigation grey-text">
+                        <li class="nav_head margin-top-10 margin-left-10 uppercase-text overviewNav active_border" data-id="overview">overview</li>
+                        <li class="nav_head margin-top-10 margin-left-10 uppercase-text relatedNav" data-id="related">related</li>
+                    </div>
+                    <div class="content channel_navigation">
+                        <div class="overview">
+                            <div class="overview_tab channel_video"></div>
+                            <div class="overview_tab related_videos"></div>
+                        </div>
+                        <li class="related display_none">Related</li>
+                    </div>
+                    <script>
+                        $(".navigation li").click(function(){
+                          var name = $(this).data("id");
+                          $(".content li").hide();
+                          $("li.nav_head").removeClass('active_border');
+                          $("li."+name+"Nav").addClass('active_border');
+                          $(".content li." + name).show();
+                        });
+                    </script>
+                </div>
             </div>
             <div class="colu col3"></div>
         </div>
