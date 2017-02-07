@@ -1,6 +1,12 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 base_url = "https://ytqck.github.io/new";
 id = "G3CcBFPMROU";
+var playButton = function(state) {
+    var icon = state ? "fa-pause-circle-o" : "fa-play-circle-o";
+    var iconR = state ? "fa-play-circle-o" : "fa-pause-circle-o";
+    $('#play-pause').removeClass(iconR);
+    $('#play-pause').addClass(icon);
+};
 
 function hash_search() {
     var url = window.location.href;
@@ -20,16 +26,41 @@ function hash_search() {
     }
     console.log(id);
 }
+
+function playPause() {
+    $('#play-pause').removeClass('fa-pause-circle-o');
+    $('#play-pause').addClass('fa-play-circle-o');
+}
 $(document).ready(function() {
     hash_search();
+    $('#input').keyup(function() {
+
+        setTimeout(function() {
+            var q = $('#input').val().trim();
+            var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + q + '&type=video&key=' + api;
+            $.getJSON(url, function(json) {
+                id = json.items[0].id.videoId;
+                transfer(id);
+            });
+        }, 2000);
+
+    });
     $('#searchForm').on('submit', function(event) {
-        var q = $('#search').val().trim();
-        var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + q + '&type=video&key=' + api;
-        $.getJSON(url, function(json) {
-            id = json.items[0].id.videoId;
-            transfer(id);
-        });
         event.preventDefault();
+    });
+
+    $('#play-pause').on('click', function() {
+        state = player.getPlayerState();
+        state === YT.PlayerState.PLAYING || player.getPlayerState() === YT.PlayerState.BUFFERING ? (player.pauseVideo(), playButton(!1)) : (player.playVideo(), playButton(!0));
+        console.log(state);
+        //playPause();
+    });
+    $('#next-play').on('click', function() {
+        player.nextVideo();
+    });
+    $('#volume').on('change', function() {
+        volume = $('#volume').val();
+        player.setVolume(volume);
     });
 });
 
@@ -55,6 +86,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.playVideo();
+    duration = event.target.getDuration();
 }
 var done = false;
 

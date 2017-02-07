@@ -41,8 +41,8 @@
     <div id="desktop">
         <div id="top_bar" class="padding-10 grey-text">
             <i class="fa fa-home el"></i>
-            <form action="" id="searchForm" class="margin-left-30 grey-text el">
-                <input class="search" id="input" name="id" type="search" placeholder="Search">
+            <form id="searchForm" class="margin-left-30 grey-text el">
+                <input class="search grey-text" id="input" type="search" placeholder="Search">
             </form>
             <i class="fa fa-search search_bar_icons search_icon el"></i>
             <i class="fa fa-times search_bar_icons cross_icon el"></i>
@@ -120,9 +120,9 @@
         </div>
 
         <div id="player_bar">
-            <i class="fa fa-step-backward player_icons"></i>
-            <i class="fa fa-pause-circle-o player_icons play"></i>
-            <i class="fa fa-step-forward player_icons"></i>
+            <i class="fa fa-step-backward player_icons grey-text"></i>
+            <i class="fa fa-pause-circle-o player_icons play" id="play-pause"></i>
+            <i class="fa fa-step-forward player_icons grey-text" id="next-play"></i>
             <input type="range" min="0" max="100" step="1" value="90" id="volume" />
             <i class="fa fa-volume-up grey-text"></i>
             <span class="time_complete time white-text">1:30</span>

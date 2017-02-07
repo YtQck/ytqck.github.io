@@ -235,6 +235,7 @@ input[type=search]{
   vertical-align: middle;
 
   color: white;
+  cursor: pointer;
 
   font-size: 20px;
   font-weight: 100;
