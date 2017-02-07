@@ -40,14 +40,16 @@
 <body>
     <div id="desktop">
         <div id="top_bar" class="padding-10 grey-text">
-            <i class="fa fa-home"></i>
-            <input class="search margin-left-10 grey-text" id="input" type="search" placeholder="Search">
-            <i class="fa fa-search search_bar_icons search_icon"></i>
-            <i class="fa fa-times search_bar_icons cross_icon"></i>
-            <span class="title font-size-30">YtQck</span>
+            <i class="fa fa-home el"></i>
+            <form action="" id="searchForm" class="margin-left-30 grey-text el">
+                <input class="search" id="input" name="id" type="search" placeholder="Search">
+            </form>
+            <i class="fa fa-search search_bar_icons search_icon el"></i>
+            <i class="fa fa-times search_bar_icons cross_icon el"></i>
+            <span class="title font-size-30 el">YtQck</span>
             <div id="user">
-                <i class="user_image_main"><img src="images/dev.png" alt="user images" class="user_image responsive img-circle" /></i>
-                <span class="user_name">Guest</span>
+                <i class="user_image_main el"><img src="images/dev.png" alt="user images" class="user_image responsive img-circle" /></i>
+                <span class="user_name el">Guest</span>
             </div>
         </div>
 
@@ -76,7 +78,7 @@
                     </ul>
                 </div>
                 <div id="musicArt">
-                    <img src="https://i.ytimg.com/vi/Jrv95rcDR5Q/hqdefault.jpg" id="videoArt" />
+                    <div id="players"></div>
                 </div>
                 <div id="musicTitle">
                     <span id="video_name" class="white-text padding-left-10">Video Name</span>
@@ -104,12 +106,12 @@
                         <li class="related display_none">Related</li>
                     </div>
                     <script>
-                        $(".navigation li").click(function(){
-                          var name = $(this).data("id");
-                          $(".content li").hide();
-                          $("li.nav_head").removeClass('active_border');
-                          $("li."+name+"Nav").addClass('active_border');
-                          $(".content li." + name).show();
+                        $(".navigation li").click(function() {
+                            var name = $(this).data("id");
+                            $(".content li").hide();
+                            $("li.nav_head").removeClass('active_border');
+                            $("li." + name + "Nav").addClass('active_border');
+                            $(".content li." + name).show();
                         });
                     </script>
                 </div>
@@ -135,6 +137,7 @@
             <p class="red-text center">Working on the mobile layout</p>
         </div>
     </div>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
