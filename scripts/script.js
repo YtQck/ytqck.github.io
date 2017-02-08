@@ -2,6 +2,26 @@ api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 base_url = "https://ytqck.github.io/new";
 id = "";
 
+function channel(channelID) {
+    url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" + channelID + "&key=" + api;
+    $.getJSON(url, function(json) {
+        img = json.items[0].snippet.thumbnails.default.url;
+        $("#channelIcon").attr("src", img);
+        title = json.items[0].snippet.title;
+        $("#channelName").text(title);
+    });
+}
+
+function details(id) {
+    url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + api;
+    $.getJSON(url, function(json) {
+        title = json.items[0].snippet.title;
+        $("#video_name").text(title);
+        channelID = json.items[0].snippet.channelId;
+        channel(channelID);
+    });
+}
+
 function playButton(state) {
     var icon = state ? "fa-pause-circle-o" : "fa-play-circle-o";
     var iconR = state ? "fa-play-circle-o" : "fa-pause-circle-o";
@@ -29,12 +49,13 @@ function hash_search() {
             if (id === '') {
                 //do nothing
             }
-            cover = "url(https://i.ytimg.com/vi/" + id + "/hqdefault.jpg)";
+            cover = "url(https://i.ytimg.com/vi/" + id + "/sddefault.jpg)";
             $("#cover").css('background-image', cover);
         } else {
             //do nothing
         }
     }
+    details(id);
 }
 
 function timeEncode(time) {
