@@ -1,5 +1,5 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "file:///home/midhruvjaink/dev/ytqck.github.io/new.html";
+base_url = "https://ytqck.github.io/new";
 id = "";
 
 function playButton(state) {
