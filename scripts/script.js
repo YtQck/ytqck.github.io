@@ -1,12 +1,24 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io/new";
-id = "G3CcBFPMROU";
-var playButton = function(state) {
+base_url = "file:///home/midhruvjaink/dev/ytqck.github.io/new.html";
+id = "";
+
+function playButton(state) {
     var icon = state ? "fa-pause-circle-o" : "fa-play-circle-o";
     var iconR = state ? "fa-play-circle-o" : "fa-pause-circle-o";
     $('#play-pause').removeClass(iconR);
     $('#play-pause').addClass(icon);
-};
+}
+
+function mute(state) {
+    var iconR = state ? "fa-volume-off" : "fa-volume-up";
+    var icon = state ? "fa-volume-up" : "fa-volume-off";
+    $('#mute').removeClass(iconR);
+    $('#mute').addClass(icon);
+}
+
+function seekTO(a) {
+    player.seekTo(a, false);
+}
 
 function hash_search() {
     var url = window.location.href;
@@ -17,24 +29,38 @@ function hash_search() {
             if (id === '') {
                 //do nothing
             }
-            console.log(id);
             cover = "url(https://i.ytimg.com/vi/" + id + "/hqdefault.jpg)";
             $("#cover").css('background-image', cover);
         } else {
             //do nothing
         }
     }
-    console.log(id);
 }
 
-function playPause() {
-    $('#play-pause').removeClass('fa-pause-circle-o');
-    $('#play-pause').addClass('fa-play-circle-o');
+function timeEncode(time) {
+    min = time / 60;
+    sec = time % 60;
+    min = Math.floor(min);
+    sec = Math.floor(sec);
+    result = min + ":" + sec;
+    return result;
+}
+
+function currentTime(a) {
+    setTimeout(function() {
+        currentTimeSec = player.getCurrentTime();
+        //duration = player.getDuration();
+        complete = (currentTimeSec / a) * 1000;
+        complete = Math.floor(complete);
+        $('#seekbar').attr("value", complete);
+        currentDuration = timeEncode(currentTimeSec);
+        $('#currentTime').text(currentDuration);
+        currentTime(a);
+    }, 1000);
 }
 $(document).ready(function() {
     hash_search();
     $('#input').keyup(function() {
-
         setTimeout(function() {
             var q = $('#input').val().trim();
             var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + q + '&type=video&key=' + api;
@@ -52,8 +78,10 @@ $(document).ready(function() {
     $('#play-pause').on('click', function() {
         state = player.getPlayerState();
         state === YT.PlayerState.PLAYING || player.getPlayerState() === YT.PlayerState.BUFFERING ? (player.pauseVideo(), playButton(!1)) : (player.playVideo(), playButton(!0));
-        console.log(state);
-        //playPause();
+    });
+    $('#mute').on('click', function() {
+        state = player.isMuted();
+        state === false ? (player.mute(), mute(!1)) : (player.unMute(), mute(!0));
     });
     $('#next-play').on('click', function() {
         player.nextVideo();
@@ -61,6 +89,14 @@ $(document).ready(function() {
     $('#volume').on('change', function() {
         volume = $('#volume').val();
         player.setVolume(volume);
+    });
+    $('#seekbar').on('change', function() {
+        seek = $('#seekbar').val();
+        seek = Math.floor(seek / 10) / 100;
+        to = player.getDuration() * seek;
+        currentDuration = timeEncode(to);
+        $('#currentTime').text(currentDuration);
+        seekTO(to);
     });
 });
 
@@ -86,7 +122,10 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.playVideo();
-    duration = event.target.getDuration();
+    duration = player.getDuration();
+    currentTime(duration);
+    duration = timeEncode(duration);
+    $('#duration').text(duration);
 }
 var done = false;
 

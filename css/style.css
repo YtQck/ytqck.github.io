@@ -54,18 +54,20 @@ a{
   }
 }
 #top_bar{
+  position: relative;
+
   height: 30px;
   margin-top: -7px;
 
   border-bottom: 1px solid #848484;
-  position: relative;
 }
 .el{
   display: inline;
 }
 #searchForm{
-  margin-top: -15px;
   position: relative;
+
+  margin-top: -15px;
 }
 input[type=search]{
   height: 25px;
@@ -106,9 +108,10 @@ input[type=search]{
 
   width: 15vw;
   margin: 0 auto;
-  padding-left: 32px;
+  padding-left: 35px;
 
-  background: url(../assets/site/newfav.png) no-repeat -2px;
+  background: url(../assets/site/newLogo.svg) no-repeat -2px;
+  background-position: left;
 
   font-family: 'Architects Daughter';
   font-weight: 400;
@@ -172,9 +175,10 @@ input[type=search]{
 .col2{
   width: 64.2857142857%;
 
-  background: #212123;
   outline: 1px solid #373738;
   outline-offset: -1px;
+  background: #212123;
+
   font-family: 'Open Sans', sans-serif;
 }
 .col3{
@@ -202,7 +206,7 @@ input[type=search]{
   text-align: center;
   text-align: center;
 
-  color: #F42F42;
+  color: #D3333D;
 }
 .menu_title{
   padding-left: 5px;
@@ -232,10 +236,10 @@ input[type=search]{
   padding: 10px;
   padding-top: 10px;
 
+  cursor: pointer;
   vertical-align: middle;
 
   color: white;
-  cursor: pointer;
 
   font-size: 20px;
   font-weight: 100;
@@ -330,6 +334,7 @@ input[type=range]:active::-ms-thumb {
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 1em;
+
   cursor: pointer;
 
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -349,66 +354,102 @@ input[type=range]::-ms-track {
   border-color: transparent;
   background: transparent;
 }
-.fa-volume-up{
+#mute{
+  position: absolute;
+
+  width: 40px;
+  margin-top: 17px;
   padding-left: 5px;
-  vertical-align: middle;
-}
-.time_complete{
-  padding-left: 20px;
+
   vertical-align: middle;
 }
 #volume{
   width: 100px;
 }
-#seekbar{
-  width: 950px;
-}
+.time_complete{
+  position: absolute;
 
+  width: 20px;
+  margin-top: 17px;
+  margin-left: 30px;
+
+  text-align: right;
+  vertical-align: middle;
+}
+#seekbar{
+  position: absolute;
+
+  width: 950px;
+  margin-top: 17px;
+  margin-left: 70px;
+}
+#duration{
+  position: absolute;
+  right: 60px;
+
+  margin-top: 17px;
+
+  text-align: left;
+}
+#loop{
+  position: absolute;
+  right: 15px;
+
+  margin-top: 17px;
+}
 .channel_cover{
-  height: 45%;
   position: relative;
+
+  height: 45%;
 }
 #cover{
   position: relative;
+
   height: 100%;
+
+  opacity: 0.7;
+  border-bottom: 2px solid white;
   background-image: url();
   background-position: 0;
   background-size: cover;
-  opacity: 0.7;
-  border-bottom: 2px solid white;
 }
 #channelArt{
-  top:45%;
   position: absolute;
+  top:45%;
 }
 #channelIcon{
+  position: relative;
+  left: 5%;
+
   width: 128px;
   height: 128px;
-  left: 5%;
-  position: relative;
 }
 #channelName{
   position: relative;
   left: 15%;
 }
 #cover_bottom{
-  background: inherit;
   height: 55%;
+
+  background: inherit;
 }
 .channel_navigation{
   list-style: none;
 }
 .navigation{
-  display: flex;
-  width: 100%;
   position: relative;
-  border-bottom: 1px solid #6d6d6d;
+
+  display: flex;
+
+  width: 100%;
   height: 12%;
+
+  border-bottom: 1px solid #6d6d6d;
 }
 .nav_head{
 }
 .active_border{
-  border-bottom: 2px solid #F42F42;
+  border-bottom: 2px solid #D3333D;
 }
 .display_none{
   display: none;
@@ -417,13 +458,16 @@ input[type=range]::-ms-track {
   height: 85%;
 }
 .overview{
-  height: 100%;
   position: absolute;
+
+  height: 100%;
+
   background: red;
 }
 .overview_tab{
-  height: 90%;
   width: 50%;
+  height: 90%;
+
   background: yellow;
 }
 .channel_video{

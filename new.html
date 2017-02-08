@@ -124,11 +124,11 @@
             <i class="fa fa-pause-circle-o player_icons play" id="play-pause"></i>
             <i class="fa fa-step-forward player_icons grey-text" id="next-play"></i>
             <input type="range" min="0" max="100" step="1" value="90" id="volume" />
-            <i class="fa fa-volume-up grey-text"></i>
-            <span class="time_complete time white-text">1:30</span>
-            <input type="range" min="0" max="100" step="1" value="10" id="seekbar" />
-            <span class="total_time time white-text">4:30</span>
-            <i class="fa fa-repeat padding-left-10 grey-text"></i>
+            <i class="fa fa-volume-up white-text" id="mute"></i>
+            <span class="time_complete time white-text" id="currentTime">00:00</span>
+            <input type="range" min="0" max="1000" step="1" value="0" id="seekbar" />
+            <span class="total_time time white-text" id="duration">00:00</span>
+            <i class="fa fa-repeat padding-left-10 grey-text" id="loop"></i>
         </div>
     </div>
     <div id="mobile">
