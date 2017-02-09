@@ -1,6 +1,28 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io/new";
+base_url = "file:///home/midhruvjaink/dev/ytqck.github.io/new.html";
 id = "";
+
+function related(id) {
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + id + "&type=video&key=" + api;
+    $.getJSON(url, function(json) {
+        related_result = "";
+        $.each(json.items, function(index, value) {
+            id = value.id.videoId;
+            related_result += '<a href="new.html?id=' + id + '" class="related_video padding-top-10 padding-bottom-10">';
+            related_result += '<img class="img-circle pointer related_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="32px"/>';
+            related_result += '<span class="margin-bottom-10 pointer related_video_name white-text vertical_middle scroll video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
+        });
+        $("#related_videos").html(related_result);
+    });
+}
+
+function stat(id) {
+    url = "https://www.googleapis.com/youtube/v3/videos?part=statistics&id=" + id + "&key=" + api;
+    $.getJSON(url, function(json) {
+        viewcount = json.items[0].statistics.viewCount;
+        return viewcount;
+    });
+}
 
 function channel(channelID) {
     url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=" + channelID + "&key=" + api;
@@ -10,6 +32,19 @@ function channel(channelID) {
         title = json.items[0].snippet.title;
         $("#channelName").text(title);
     });
+    //channel popular uploads
+    url = "https://www.googleapis.com/youtube/v3/search?key=" + api + "&channelId=" + channelID + "&part=snippet,id&order=viewcount&maxResults=5";
+    popular_result = "";
+    $.getJSON(url, function(json) {
+        $.each(json.items, function(index, value) {
+            id = value.id.videoId;
+            popular_result += '<a href="new.html?id=' + id + '" class="popular_video padding-top-10 padding-bottom-10">';
+            popular_result += '<img class="pointer popular_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="24px"/>';
+            popular_result += '<span class="pointer popular_video_index video_transfer" data-id="' + id + '">' + (index + 1) + '</span>';
+            popular_result += '<span class="pointer popular_video_name white-text vertical_middle scrollX video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
+        });
+        $("#popular_videos").html(popular_result);
+    });
 }
 
 function details(id) {
@@ -18,6 +53,7 @@ function details(id) {
         title = json.items[0].snippet.title;
         $("#video_name").text(title);
         channelID = json.items[0].snippet.channelId;
+        console.log(channelID);
         channel(channelID);
     });
 }
@@ -56,6 +92,7 @@ function hash_search() {
         }
     }
     details(id);
+    related(id);
 }
 
 function timeEncode(time) {
@@ -110,6 +147,19 @@ $(document).ready(function() {
     $('#volume').on('change', function() {
         volume = $('#volume').val();
         player.setVolume(volume);
+    });
+    $(".navigation li").click(function() {
+        var name = $(this).data("id");
+        $(".content li").hide();
+        $("li.nav_head").removeClass('active_border');
+        $("li." + name + "Nav").addClass('active_border');
+        $(".content li." + name).show();
+    });
+    $(".popular_video").click(function() {
+        alert("Click");
+        id = $(this).data("id");
+        alert(id);
+        transfer(id);
     });
     $('#seekbar').on('change', function() {
         seek = $('#seekbar').val();

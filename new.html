@@ -38,7 +38,7 @@
 </head>
 
 <body>
-    <div id="desktop">
+    <div id="desktop" class="noselect">
         <div id="top_bar" class="padding-10 grey-text">
             <i class="fa fa-home el"></i>
             <form id="searchForm" class="margin-left-30 grey-text el">
@@ -80,8 +80,8 @@
                 <div id="musicArt">
                     <div id="players"></div>
                 </div>
-                <div id="musicTitle">
-                    <span id="video_name" class="white-text padding-left-10"></span>
+                <div id="musicTitle" class="scroll  padding-left-10">
+                    <span id="video_name" class="white-text"></span>
                 </div>
             </div>
             <div class="colu col2">
@@ -99,21 +99,24 @@
                         <li class="nav_head margin-top-10 margin-left-10 uppercase-text relatedNav" data-id="related">related</li>
                     </div>
                     <div class="content channel_navigation">
-                        <div class="overview">
-                            <div class="overview_tab channel_video"></div>
-                            <div class="overview_tab related_videos"></div>
-                        </div>
+                        <li class="overview">
+                            <div class="overview_body margin-left-10 margin-right-10 margin-top-10">
+                                <div id="popular" class="padding-10">
+                                    <span class="popular_title uppercase-text grey-text">Popular</span>
+                                    <div id="popular_videos" class="padding-top-10">
+                                        <!--aliens coming-->
+                                    </div>
+                                </div>
+                                <div id="related" class="padding-10">
+                                    <span class="related_title uppercase-text grey-text">Related Videos</span>
+                                    <div id="related_videos" class="padding-top-10">
+                                        <!--aliens coming-->
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li class="related display_none">Related</li>
                     </div>
-                    <script>
-                        $(".navigation li").click(function() {
-                            var name = $(this).data("id");
-                            $(".content li").hide();
-                            $("li.nav_head").removeClass('active_border');
-                            $("li." + name + "Nav").addClass('active_border');
-                            $(".content li." + name).show();
-                        });
-                    </script>
                 </div>
             </div>
             <div class="colu col3"></div>
