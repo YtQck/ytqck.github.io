@@ -241,19 +241,28 @@ input[type=search]{
 
   line-height: 22px;
 }
-.scroll::-webkit-scrollbar-track
-{
+.scroll::-webkit-scrollbar-track{
 	background-color: #2d2d30;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
-.scroll::-webkit-scrollbar
-{
+.scroll::-webkit-scrollbar{
 	width: 6px;
 
 	background-color: #2d2d30;
 }
-.scroll::-webkit-scrollbar-thumb
-{
+.scroll::-webkit-scrollbar-thumb{
+	background-color: #212123;
+}
+.scroll::-moz-scrollbar-track{
+	background-color: #2d2d30;
+	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.scroll::-moz-scrollbar{
+	width: 6px;
+
+	background-color: #2d2d30;
+}
+.scroll::-moz-scrollbar-thumb{
 	background-color: #212123;
 }
 /*inverse scroll*/
@@ -267,6 +276,18 @@ input[type=search]{
 	background-color: #212123;
 }
 .scrollX::-webkit-scrollbar-thumb{
+	background-color: #2d2d30;
+}
+.scrollX::-moz-scrollbar-track{
+	background-color: #212123;
+	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.scrollX::-moz-scrollbar{
+	width: 6px;
+
+	background-color: #212123;
+}
+.scrollX::-moz-scrollbar-thumb{
 	background-color: #2d2d30;
 }
 
@@ -508,21 +529,30 @@ input[type=range]::-ms-track {
 }
 .overview_body{
   position: relative;
+  z-index: 0;
 
   display: table;
   float: left;
-  overflow-y: scroll;
 
   width: 62vw;
+  max-height: 277px;
 }
 #popular{
-  display: table-cell;
+  bottom: 200px;
 
-  width: 65%;
+  width: 90%;
+  max-height: 70%;
 
   background: inherit;
 }
 #popular_videos{
+  position: absolute;
+
+  overflow-y: scroll;
+
+  width: 60%;
+  max-height: 200px;
+
   line-height: 30px;
 }
 .popular_video{
@@ -550,7 +580,7 @@ input[type=range]::-ms-track {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  width: 400px;
+  width: 380px;
   height: 24px;
 
   line-height: 24px;
@@ -567,6 +597,11 @@ input[type=range]::-ms-track {
 
   background: inherit;
 }
+#related_videos{
+  overflow-y: scroll;
+
+  max-height: 200px;
+}
 .related_video{
   background: #2d2d30;
 }
@@ -580,7 +615,7 @@ input[type=range]::-ms-track {
   overflow-x: hidden;
   overflow-y: scroll;
 
-  width: 220px;
+  width: 200px;
   height: 32px;
 
   line-height: 26px;

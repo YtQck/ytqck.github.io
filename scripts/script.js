@@ -3,7 +3,7 @@ base_url = "https://ytqck.github.io/new";
 id = "";
 
 function related(id) {
-    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + id + "&type=video&key=" + api;
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + id + "&type=video&key=" + api + "&maxResults=7";
     $.getJSON(url, function(json) {
         related_result = "";
         $.each(json.items, function(index, value) {
@@ -33,7 +33,7 @@ function channel(channelID) {
         $("#channelName").text(title);
     });
     //channel popular uploads
-    url = "https://www.googleapis.com/youtube/v3/search?key=" + api + "&channelId=" + channelID + "&part=snippet,id&order=viewcount&maxResults=5";
+    url = "https://www.googleapis.com/youtube/v3/search?key=" + api + "&channelId=" + channelID + "&part=snippet,id&order=viewcount&maxResults=10";
     popular_result = "";
     $.getJSON(url, function(json) {
         $.each(json.items, function(index, value) {
@@ -100,6 +100,9 @@ function timeEncode(time) {
     sec = time % 60;
     min = Math.floor(min);
     sec = Math.floor(sec);
+    if (sec >= 0 & sec < 10) {
+        sec = "0" + sec;
+    }
     result = min + ":" + sec;
     return result;
 }
@@ -118,18 +121,14 @@ function currentTime(a) {
 }
 $(document).ready(function() {
     hash_search();
-    $('#input').keyup(function() {
-        setTimeout(function() {
-            var q = $('#input').val().trim();
-            var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + q + '&type=video&key=' + api;
-            $.getJSON(url, function(json) {
-                id = json.items[0].id.videoId;
-                transfer(id);
-            });
-        }, 2000);
 
-    });
     $('#searchForm').on('submit', function(event) {
+        var q = $('#input').val().trim();
+        var url = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + q + '&type=video&key=' + api;
+        $.getJSON(url, function(json) {
+            id = json.items[0].id.videoId;
+            transfer(id);
+        });
         event.preventDefault();
     });
 
