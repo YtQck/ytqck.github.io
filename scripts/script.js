@@ -8,7 +8,7 @@ function related(id) {
         related_result = "";
         $.each(json.items, function(index, value) {
             id = value.id.videoId;
-            related_result += '<a href="new.html?id=' + id + '" class="related_video padding-top-10 padding-bottom-10">';
+            related_result += '<a href="new?id=' + id + '" class="related_video padding-top-10 padding-bottom-10">';
             related_result += '<img class="img-circle pointer related_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="32px"/>';
             related_result += '<span class="margin-bottom-10 pointer related_video_name white-text vertical_middle scroll video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
         });
@@ -38,7 +38,7 @@ function channel(channelID) {
     $.getJSON(url, function(json) {
         $.each(json.items, function(index, value) {
             id = value.id.videoId;
-            popular_result += '<a href="new.html?id=' + id + '" class="popular_video padding-top-10 padding-bottom-10">';
+            popular_result += '<a href="new?id=' + id + '" class="popular_video padding-top-10 padding-bottom-10">';
             popular_result += '<img class="pointer popular_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="24px"/>';
             popular_result += '<span class="pointer popular_video_index video_transfer" data-id="' + id + '">' + (index + 1) + '</span>';
             popular_result += '<span class="pointer popular_video_name white-text vertical_middle scrollX video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
