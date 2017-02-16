@@ -41,6 +41,19 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+function login() {
+    FB.login(function(response) {
+        if (response.status === 'connected') {
+            $("#login").style.visibility = 'hidden';
+            getInfo();
+        } else if (response.status === 'not_authorized') {
+
+        } else {
+
+        }
+    });
+}
+
 function getInfo() {
   FB.api('/me', 'GET', {fields: 'first_name,email,last_name,name,id,picture.width(150).height(150)'}, function(response) {
   photoURL = response.picture.data.url;
@@ -227,6 +240,9 @@ $(document).ready(function() {
         currentDuration = timeEncode(to);
         $('#currentTime').text(currentDuration);
         seekTO(to);
+    });
+    $('#login').on('click', function() {
+        login();
     });
 });
 
