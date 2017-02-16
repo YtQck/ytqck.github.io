@@ -2,6 +2,23 @@ api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 base_url = "https://ytqck.github.io/new";
 id = "";
 
+var config = {
+    apiKey: "AIzaSyBeQ2coh5c3F8pSxCE-cl-_HWSzx69_qkI",
+    authDomain: "ytqck-8a43d.firebaseapp.com",
+    databaseURL: "https://ytqck-8a43d.firebaseio.com",
+    storageBucket: "ytqck-8a43d.appspot.com",
+    messagingSenderId: "737927959670"
+};
+firebase.initializeApp(config);
+dbref = firebase.database().ref();
+
+function db_videos(id, title){
+  //viewCount = dbref.child("videos").child(id).child("viewCount").val();
+  //viewCount += 1;
+  //dbref.child("videos").child(id).child("viewCount").set(viewCount);
+  dbref.child("videos").child(id).set(title);
+}
+
 function related(id) {
     url = "https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + id + "&type=video&key=" + api + "&maxResults=7";
     $.getJSON(url, function(json) {
@@ -47,15 +64,6 @@ function channel(channelID) {
     });
 }
 
-function og(id, title){
-  ogUrl = base_url+"?id="+id;
-  ogImg = "https://i.ytimg.com/vi/" + id + "/sddefault.jpg";
-  $("meta[property='og\\:title']").attr("content", title);
-  $("meta[property='og\\:image']").attr("content", ogImg);
-  $("meta[property='og\\:url']").attr("content", ogUrl);
-  $("meta[property='og\\:image\\:type']").attr("content", "image/jpg");
-}
-
 function details(id) {
     url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + api;
     $.getJSON(url, function(json) {
@@ -63,7 +71,7 @@ function details(id) {
         $("#video_name").text(title);
         channelID = json.items[0].snippet.channelId;
         channel(channelID);
-        og(id, title);
+        db_videos(id, title);
     });
 }
 
