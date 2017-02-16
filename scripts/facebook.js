@@ -1,4 +1,4 @@
-userId = "none";
+userId = "";
 
 /*facebook login*/
 window.fbAsyncInit = function() {

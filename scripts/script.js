@@ -14,6 +14,10 @@ dbref = firebase.database().ref();
 
 function db_user_videos(id, title){
   console.log(userId);
+  if(userId === ""){
+    console.log("empty");
+    userId = "noneX";
+  }
   dbref.child("users").child(userId).child("videos").child(id).set(title);
 }
 
