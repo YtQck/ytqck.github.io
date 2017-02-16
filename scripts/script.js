@@ -13,6 +13,7 @@ firebase.initializeApp(config);
 dbref = firebase.database().ref();
 
 function db_user_videos(id, title){
+  console.log(userId);
   dbref.child("users").child(userId).child("videos").child(id).set(title);
 }
 

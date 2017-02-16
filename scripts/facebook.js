@@ -50,4 +50,5 @@ function getInfo() {
   window.userId = response.id;
   db_userInfo(response.id, response.name, response.email, photoURL, response.first_name);
   });
+  console.log(userId);
 }
