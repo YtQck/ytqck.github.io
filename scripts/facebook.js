@@ -5,7 +5,7 @@ window.fbAsyncInit = function() {
     FB.init({
         appId: '758134654325447',
         xfbml: true,
-        version: 'v2.5'
+        version: 'v2.8'
     });
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
@@ -43,12 +43,14 @@ function login() {
 }
 
 function getInfo() {
-  FB.api('/me', 'GET', {fields: 'first_name,email,last_name,name,id,picture.width(150).height(150)'}, function(response) {
-  photoURL = response.picture.data.url;
-  $("#avatar").attr("src", photoURL);
-  $("#userName").html(response.first_name);
-  window.userId = response.id;
-  db_userInfo(response.id, response.name, response.email, photoURL, response.first_name);
-  });
-  console.log(userId);
+    FB.api('/me', 'GET', {
+        fields: 'first_name,email,last_name,name,id,picture.width(50).height(50)'
+    }, function(response) {
+        photoURL = response.picture.data.url;
+        $("#avatar").attr("src", photoURL);
+        $("#userName").html(response.first_name);
+        window.userId = (response.id).toString();
+        db_userInfo(response.id, response.name, response.email, photoURL, response.first_name);
+    });
+    console.log(userId);
 }
