@@ -81,13 +81,13 @@ function channel(channelID) {
 function details(id) {
     url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + api;
     $.getJSON(url, function(json) {
-        title = json.items[0].snippet.title;
-        $("#video_name").text(title);
+        videoTitle = json.items[0].snippet.title;
+        $("#video_name").text(videoTitle);
         channelID = json.items[0].snippet.channelId;
         channel(channelID);
-        db_videos(id, title);
+        db_videos(id, videoTitle);
         setTimeout(function(){
-          db_user_videos(id, title);
+          db_user_videos(id, videoTitle);
         },5000);
     });
 }
