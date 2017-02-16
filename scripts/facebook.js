@@ -49,7 +49,7 @@ function getInfo() {
         photoURL = response.picture.data.url;
         $("#avatar").attr("src", photoURL);
         $("#userName").html(response.first_name);
-        window.userId = response.id;
+        userId = response.id;
         db_userInfo(response.id, response.name, response.email, photoURL, response.first_name);
     });
     console.log(userId);

@@ -88,7 +88,7 @@ function details(id) {
         db_videos(id, title);
         setTimeout(function(){
           db_user_videos(id, title);
-        },3000);
+        },5000);
     });
 }
 
