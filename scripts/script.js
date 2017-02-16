@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
     });
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            $("#login").style.visibility = 'hidden';
+            $("#login").css("display", "none");
             getInfo();
         } else if (response.status === 'not_authorized') {
 
@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
 function login() {
     FB.login(function(response) {
         if (response.status === 'connected') {
-            $("#login").style.visibility = 'hidden';
+            $("#login").css("display", "none");
             getInfo();
         } else if (response.status === 'not_authorized') {
 
