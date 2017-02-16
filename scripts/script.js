@@ -86,7 +86,9 @@ function details(id) {
         channelID = json.items[0].snippet.channelId;
         channel(channelID);
         db_videos(id, title);
-        db_user_videos(id, title);
+        setTimeout(function(){
+          db_user_videos(id, title);
+        },3000);
     });
 }
 
