@@ -47,14 +47,23 @@ function channel(channelID) {
     });
 }
 
+function og(id, title){
+  ogUrl = base_url+"?id="+id;
+  ogImg = "https://i.ytimg.com/vi/" + id + "/sddefault.jpg";
+  $("meta[property='og\\:title']").attr("content", title);
+  $("meta[property='og\\:image']").attr("content", ogImg);
+  $("meta[property='og\\:url']").attr("content", ogUrl);
+  $("meta[property='og\\:image\\:type']").attr("content", "image/jpg");
+}
+
 function details(id) {
     url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + api;
     $.getJSON(url, function(json) {
         title = json.items[0].snippet.title;
         $("#video_name").text(title);
         channelID = json.items[0].snippet.channelId;
-        console.log(channelID);
         channel(channelID);
+        og(id, title);
     });
 }
 
