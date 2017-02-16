@@ -1,7 +1,7 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 base_url = "https://ytqck.github.io/new";
 id = "";
-
+/*firebase*/
 var config = {
     apiKey: "AIzaSyBeQ2coh5c3F8pSxCE-cl-_HWSzx69_qkI",
     authDomain: "ytqck-8a43d.firebaseapp.com",
@@ -12,11 +12,54 @@ var config = {
 firebase.initializeApp(config);
 dbref = firebase.database().ref();
 
-function db_videos(id, title){
-  //viewCount = dbref.child("videos").child(id).child("viewCount").val();
-  //viewCount += 1;
-  //dbref.child("videos").child(id).child("viewCount").set(viewCount);
-  dbref.child("videos").child(id).set(title);
+/*facebook login*/
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '758134654325447',
+        xfbml: true,
+        version: 'v2.5'
+    });
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            $("#login").style.visibility = 'hidden';
+            getInfo();
+        } else if (response.status === 'not_authorized') {
+
+        } else {
+
+        }
+    });
+};
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+function getInfo() {
+  FB.api('/me', 'GET', {fields: 'first_name,email,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+  photoURL = response.picture.data.url;
+  $("#avatar").attr("src", photoURL);
+  $("#userName").html(response.first_name);
+  db_userInfo(response.id, response.name, response.email, photoURL, response.first_name);
+  });
+}
+
+function db_userInfo(id, name, email, photoURL, first_name){
+  dbref.child("users").child(id);
+  dbref.child("users").child(id).child("name").set(name);
+  dbref.child("users").child(id).child("email").set(email);
+  dbref.child("users").child(id).child("profile_picture").set(photoURL);
+  dbref.child("users").child(id).child("first_name").set(first_name);
+}
+
+function db_videos(id, title) {
+    dbref.child("videos").child(id).set(title);
 }
 
 function related(id) {
