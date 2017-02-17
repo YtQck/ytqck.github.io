@@ -38,8 +38,11 @@
     <script src="scripts/facebook.js"></script>
 </head>
 
-<body>
-    <div id="desktop" class="noselect">
+<body onload="load()">
+    <div id="loader">
+      <img id="loaderImg" src="assets/site/newLogo.svg" width="100px" height="100px" />
+    </div>
+    <div id="desktop" class="noselect display_none">
         <div id="top_bar" class="padding-10 grey-text">
             <i class="fa fa-home el"></i>
             <form id="searchForm" class="margin-left-30 grey-text el">

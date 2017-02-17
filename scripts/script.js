@@ -88,7 +88,7 @@ function details(id) {
         db_videos(id, videoTitle);
         setTimeout(function(){
           db_user_videos(id, videoTitle);
-        },5000);
+        },10000);//10sec
     });
 }
 
@@ -206,6 +206,11 @@ $(document).ready(function() {
         login();
     });
 });
+
+function load() {
+  $('#loader').hide();
+  $('#desktop').show();
+}
 
 function transfer(a) {
     url = base_url + '?id=' + a;
