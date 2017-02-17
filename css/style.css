@@ -726,6 +726,7 @@ input[type=range]::-ms-track {
 
   color: #F4F4F4;
   background: #e74c3c;
+  top: 40%;
 }
 .btn-progress {
   width: 190px;
