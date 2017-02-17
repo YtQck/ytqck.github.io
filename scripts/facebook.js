@@ -11,6 +11,7 @@ window.fbAsyncInit = function() {
         if (response.status === 'connected') {
             $("#login").css("display", "none");
             getInfo();
+            $("#downloadBtn").show();
         } else if (response.status === 'not_authorized') {
 
         } else {
@@ -34,6 +35,7 @@ function login() {
         if (response.status === 'connected') {
             $("#login").css("display", "none");
             getInfo();
+            $("#downloadBtn").show();
         } else if (response.status === 'not_authorized') {
 
         } else {

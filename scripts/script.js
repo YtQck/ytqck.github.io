@@ -1,6 +1,7 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 base_url = "https://ytqck.github.io/new";
 id = "";
+dataThere = "";
 /*firebase*/
 var config = {
     apiKey: "AIzaSyBeQ2coh5c3F8pSxCE-cl-_HWSzx69_qkI",
@@ -10,23 +11,22 @@ var config = {
     messagingSenderId: "737927959670"
 };
 firebase.initializeApp(config);
-dbref = firebase.database().ref();
+db = firebase.database();
+dbref = db.ref();
 
-function db_user_videos(id, title){
-  console.log(userId);
-  if(userId === ""){
-    console.log("empty");
-    userId = "noneX";
-  }
-  dbref.child("users").child(userId).child("videos").child(id).set(title);
+function db_user_videos(id, title) {
+    if (userId === "") {
+        userId = "noneX";
+    }
+    dbref.child("users").child(userId).child("videos").child(id).set(title);
 }
 
-function db_userInfo(id, name, email, photoURL, first_name){
-  dbref.child("users").child(id);
-  dbref.child("users").child(id).child("name").set(name);
-  dbref.child("users").child(id).child("email").set(email);
-  dbref.child("users").child(id).child("profile_picture").set(photoURL);
-  dbref.child("users").child(id).child("first_name").set(first_name);
+function db_userInfo(id, name, email, photoURL, first_name) {
+    dbref.child("users").child(id);
+    dbref.child("users").child(id).child("name").set(name);
+    dbref.child("users").child(id).child("email").set(email);
+    dbref.child("users").child(id).child("profile_picture").set(photoURL);
+    dbref.child("users").child(id).child("first_name").set(first_name);
 }
 
 function db_videos(id, title) {
@@ -86,9 +86,25 @@ function details(id) {
         channelID = json.items[0].snippet.channelId;
         channel(channelID);
         db_videos(id, videoTitle);
-        setTimeout(function(){
-          db_user_videos(id, videoTitle);
-        },10000);//10sec
+        setTimeout(function() {
+            db_user_videos(id, videoTitle);
+        }, 20000); //20sec
+    });
+}
+
+function data(da) {
+    dataThere = da.val();
+}
+
+function download(id) {
+    link = "https://www.youtubeinmp3.com/fetch/?format=JSON&filesize=1&bitrate=1&video=http://www.youtube.com/watch?v=" + id;
+    $.getJSON(link, function(response) {
+        $("#downloadBtn").attr("href", response.link);
+        fileSize = response.filesize;
+        fileSize /= 1048576;
+        fileSize = fileSize.toFixed(2);
+        ref = db.ref("dataDownload");
+        ref.on('value', data);
     });
 }
 
@@ -127,6 +143,7 @@ function hash_search() {
     }
     details(id);
     related(id);
+    download(id);
 }
 
 function timeEncode(time) {
@@ -205,11 +222,32 @@ $(document).ready(function() {
     $('#login').on('click', function() {
         login();
     });
+    var btn = $(".btn");
+    btn.on("click", function() {
+        dataThere = parseFloat(dataThere);
+        fileSize = parseFloat(fileSize);
+        dataThere = dataThere + fileSize;
+        dbref.child("dataDownload").set(dataThere);
+
+        $(this).addClass('btn-progress');
+        setTimeout(function() {
+            btn.addClass('btn-fill');
+        }, 500);
+
+        setTimeout(function() {
+            btn.removeClass('btn-fill');
+        }, 4100);
+
+        setTimeout(function() {
+            btn.addClass('btn-complete');
+        }, 4400);
+
+    });
 });
 
 function load() {
-  $('#loader').hide();
-  $('#desktop').show();
+    $('#loader').hide();
+    $('#desktop').show();
 }
 
 function transfer(a) {
