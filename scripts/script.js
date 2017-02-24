@@ -227,6 +227,9 @@ $(document).ready(function() {
     $('#login').on('click', function() {
         login();
     });
+    $('#loop').on('click', function() {
+        player.setLoop(true);
+    });
     var btn = $(".btn");
     btn.on("click", function() {
         dataThere = parseFloat(dataThere);
@@ -276,6 +279,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
+    player.setPlaybackQuality("small");
     event.target.playVideo();
     duration = player.getDuration();
     currentTime(duration);
@@ -291,6 +295,9 @@ function onPlayerStateChange(event) {
     if (player.getPlayerState() == 0) {
         next = base_url + '?id=' + nextV;
         window.open(next, "_self");
+    }
+    if (player.getPlayerState() == 1) {
+        playButton(1);
     }
 }
 
