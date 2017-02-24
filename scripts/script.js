@@ -1,5 +1,5 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "http://127.0.0.1:4000/";
+base_url = "https://ytqck.github.io/";
 id = "";
 dataThere = "";
 nextV = "a";
@@ -149,6 +149,8 @@ function hash_search() {
     details(id);
     related(id);
     download(id);
+    fbShare = window.location.href;
+    $(".fb-send").attr('data-href', fbShare);
 }
 
 function timeEncode(time) {

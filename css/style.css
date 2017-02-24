@@ -770,3 +770,13 @@ input[type=range]::-ms-track {
   from { width: 0; }
   to { width: 100%; }
 }
+.fb-like{
+  position: relative;
+  top: 80%;
+  left: 4%;
+}
+.fb-send{
+  position: relative;
+  top: -20%;
+  left: 5%;
+}
