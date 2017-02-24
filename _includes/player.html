@@ -1,24 +1,11 @@
-<div class="page player">
-  <div id="player"></div>
-  <!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_google_plus"></a>
-<a class="a2a_button_pinterest"></a>
-<a class="a2a_button_linkedin"></a>
-<a class="a2a_button_whatsapp"></a>
-<a class="a2a_button_stumbleupon"></a>
-<a class="a2a_button_copy_link"></a>
-<a class="a2a_button_facebook_messenger"></a>
-<a class="a2a_button_sms"></a>
-<a class="a2a_button_telegram"></a>
-<a class="a2a_button_email"></a>
-</div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-  <div id="cARD">
-      <i id="demo-show-snackbar" class="material-icons likeBtn" onclick="userVideo();">thumb_up</i>
-  </div>
+<div id="player_bar">
+    <i class="fa fa-step-backward player_icons grey-text"></i>
+    <i class="fa fa-pause-circle-o player_icons play" id="play-pause"></i>
+    <i class="fa fa-step-forward player_icons grey-text" id="next-play"></i>
+    <input type="range" min="0" max="100" step="1" value="90" id="volume" />
+    <i class="fa fa-volume-up white-text" id="mute"></i>
+    <span class="time_complete time white-text" id="currentTime">00:00</span>
+    <input type="range" min="0" max="1000" step="1" value="0" id="seekbar" />
+    <span class="total_time time white-text" id="duration">00:00</span>
+    <i class="fa fa-repeat padding-left-10 grey-text" id="loop"></i>
 </div>

@@ -9,17 +9,15 @@
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) No side ads and related videos hence saves data and speed.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Blazing fast streaming speed.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Less data usage.
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) No new page load for video play.
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Real time video play (plays video as you type).
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Open Source for Developers to Contribute and make a better YouTube client
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Quick video play response
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Related Music Suggestion.
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) Channel Popular Music.
+#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-20.png) LogIn with Facebook to download mp3 music and show feeds.
 
 ## feturesInDevelopment and betaTesting-
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Related Videos Suggestion.
+
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Keyboard Shortcuts.
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Cover video player as audio box.
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Genre Specific Covers.
-#### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) LogIn with Facebook.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Friends feed.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) See what they like and share.
 #### ![N|Solid](https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-16.png) Dedicate songs and videos to your loved ones.

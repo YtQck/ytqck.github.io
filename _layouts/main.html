@@ -1,21 +1,28 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>YtQck</title>
-    <link href="css/new.css" rel="stylesheet" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    {% include meta.html %}
-  </head>
-  <body>
-  {% include topNav.html %}
-  <main class="pages">
-    {% include home.html %}
-    {% include player.html %}
-    {% include feed.html %}
-  </main>
-  {content}
-  {% include scripts.html %}
-  </body>
+
+<head>
+    {% include head.html %}
+</head>
+
+<body onload="load()">
+    <div id="loader">
+        <img id="loaderImg" src="assets/site/newLogo.svg" width="100px" height="100px" />
+    </div>
+    <div id="desktop" class="noselect display_none">
+        {% include topNav.html %}
+        <div class="main">
+            {% include menu.html %} {% include home.html %} {% include feed.html %}
+        </div>
+        {% include player.html %}
+    </div>
+    <div id="mobile">
+        <div id="mobile-frame">
+            <span class="title font-size-30 grey-text">YtQck</span>
+            <p class="red-text center">Working on the mobile layout</p>
+        </div>
+    </div>
+    {% include scripts.html %}
+</body>
+
 </html>

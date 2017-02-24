@@ -1,5 +1,5 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io/new";
+base_url = "https://ytqck.github.io";
 id = "";
 dataThere = "";
 /*firebase*/
@@ -64,7 +64,7 @@ function channel(channelID) {
         $("#channelName").text(title);
     });
     //channel popular uploads
-    url = "https://www.googleapis.com/youtube/v3/search?key=" + api + "&channelId=" + channelID + "&part=snippet,id&order=viewcount&maxResults=10";
+    url = "https://www.googleapis.com/youtube/v3/search?key=" + api + "&channelId=" + channelID + "&part=snippet,id&order=viewcount&maxResults=9";
     popular_result = "";
     $.getJSON(url, function(json) {
         $.each(json.items, function(index, value) {
