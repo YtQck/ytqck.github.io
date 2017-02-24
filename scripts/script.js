@@ -1,7 +1,8 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io";
+base_url = "http://127.0.0.1:4000/";
 id = "";
 dataThere = "";
+nextV = "a";
 /*firebase*/
 var config = {
     apiKey: "AIzaSyBeQ2coh5c3F8pSxCE-cl-_HWSzx69_qkI",
@@ -39,11 +40,13 @@ function related(id) {
         related_result = "";
         $.each(json.items, function(index, value) {
             id = value.id.videoId;
-            related_result += '<a href="new?id=' + id + '" class="related_video padding-top-10 padding-bottom-10">';
+            related_result += '<a href="?id=' + id + '" class="related_video padding-top-10 padding-bottom-10">';
             related_result += '<img class="img-circle pointer related_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="32px"/>';
             related_result += '<span class="margin-bottom-10 pointer related_video_name white-text vertical_middle scroll video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
         });
         $("#related_videos").html(related_result);
+        nextV = json.items[0].id.videoId;
+        console.log(nextV);
     });
 }
 
@@ -69,7 +72,7 @@ function channel(channelID) {
     $.getJSON(url, function(json) {
         $.each(json.items, function(index, value) {
             id = value.id.videoId;
-            popular_result += '<a href="new?id=' + id + '" class="popular_video padding-top-10 padding-bottom-10">';
+            popular_result += '<a href="?id=' + id + '" class="popular_video padding-top-10 padding-bottom-10">';
             popular_result += '<img class="pointer popular_video_thumbnail video_transfer padding-left-10" data-id="' + id + '" src="https://i.ytimg.com/vi/' + id + '/default.jpg" width="32px" height="24px"/>';
             popular_result += '<span class="pointer popular_video_index video_transfer" data-id="' + id + '">' + (index + 1) + '</span>';
             popular_result += '<span class="pointer popular_video_name white-text vertical_middle scrollX video_transfer" data-id="' + id + '">' + value.snippet.title + '</span></a><br>';
@@ -134,11 +137,13 @@ function hash_search() {
             window.id = url.slice(url.indexOf("=") + 1, url.length);
             if (id === '') {
                 //do nothing
+                alert("Music not found!");
             }
             cover = "url(https://i.ytimg.com/vi/" + id + "/sddefault.jpg)";
             $("#cover").css('background-image', cover);
         } else {
             //do nothing
+            alert("Retry Searching the Music!");
         }
     }
     details(id);
@@ -282,6 +287,10 @@ var done = false;
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING && !done) {
         done = true;
+    }
+    if (player.getPlayerState() == 0) {
+        next = base_url + '?id=' + nextV;
+        window.open(next, "_self");
     }
 }
 
