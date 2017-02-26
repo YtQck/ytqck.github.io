@@ -143,7 +143,6 @@ function hash_search() {
             $("#cover").css('background-image', cover);
         } else {
             //do nothing
-            alert("Retry Searching the Music!");
         }
     }
     details(id);
@@ -253,6 +252,27 @@ $(document).ready(function() {
         }, 4400);
 
     });
+    $("#input").autocomplete({
+        source: function(request, response) {
+            query = request.term;
+            $.ajax({
+                url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=" + query + "&key=" + api + "&format=5&alt=json&callback=?",
+                dataType: 'jsonp',
+                success: function(data, textStatus, request) {
+                    console.log(data);
+                    response($.map(data[1], function(item) {
+                        console.log(item[0]);
+                        console.log("------------");
+                        return {
+                            label: item[0],
+                            value: item[0]
+                        }
+                    }));
+                }
+            });
+        }
+    });
+
 });
 
 function load() {
