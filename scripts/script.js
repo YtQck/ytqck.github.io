@@ -256,7 +256,7 @@ $(document).ready(function() {
         source: function(request, response) {
             query = request.term;
             $.ajax({
-                url: "http://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=" + query + "&key=" + api + "&format=5&alt=json&callback=?",
+                url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=" + query + "&key=" + api + "&format=5&alt=json&callback=?",
                 dataType: 'jsonp',
                 success: function(data, textStatus, request) {
                     console.log(data);
