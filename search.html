@@ -106,7 +106,7 @@
       padding-left: 8px;
       width: 94%;
     }
-    button{
+    #msb{
       border-radius: 0;
       padding: 0;
       position: absolute;
@@ -193,6 +193,17 @@
       font-size: small;
       font-weight: normal;
     }
+    .actions{
+      background: #fff;
+      outline: none;
+      border: 1px solid #222;
+      border-radius: 2px;
+      cursor: pointer;
+      width: 10%;
+    }
+    .actions:hover{
+      cursor: pointer;
+    }
     @media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-resolution:192dpi){
       header{
         text-align: center;
@@ -273,6 +284,9 @@
       .scidwn>span{
         color: #222;
       }
+      .actions{
+        width: 49%;
+      }
     }
     </style>
     <div class="wrapper">
@@ -288,7 +302,7 @@
                     <input type="search" name="q" maxlength="2048" autocomplete="off" autocorrect="off">
                   </div>
                 </div>
-                <button class="sb" id="msb" name="btn" type="submit">
+                <button class="sb" id="msb" name="btn" value="sub" type="submit">
                   <div class="sbi"></div>
                 </button>
               </div>
@@ -311,7 +325,8 @@
               </div>
               <div class="scidwn">
                 <span class="">
-                  dsffffff
+                  <button type="button" class="actions" id="play">Play</button>
+                  <button type="button" class="actions" id="download">Download</button>
                 </span>
               </div>
             </div>
@@ -330,12 +345,12 @@
               </div>
               <div class="scidwn">
                 <span class="">
-                  dsffffff
+                  <button type="button" class="actions" id="play">Play</button>
+                  <button type="button" class="actions" id="download">Download</button>
                 </span>
               </div>
             </div>
           </div>
-
         </div>
     </div>
   </body>
