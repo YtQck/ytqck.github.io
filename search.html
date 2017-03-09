@@ -29,6 +29,7 @@
     <meta name="twitter:title" content="YtQck" />
     <meta name="twitter:description" content="Download Music for Free. Get every song and download the mp3." />
     <meta name="twitter:image" content="assets/site/logo-64.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
   <body>
     <style>
@@ -285,7 +286,9 @@
         color: #222;
       }
       .actions{
-        width: 49%;
+        width: 48%;
+        padding: 5px;
+        margin: 2px;
       }
     }
     </style>
@@ -299,7 +302,7 @@
               <div class="ms">
                 <div class="msi">
                   <div class="msii">
-                    <input type="search" name="q" maxlength="2048" autocomplete="off" autocorrect="off">
+                    <input id="query" type="search" name="q" maxlength="2048" autocomplete="off" autocorrect="off">
                   </div>
                 </div>
                 <button class="sb" id="msb" name="btn" value="sub" type="submit">
@@ -311,7 +314,7 @@
         </header>
 
         <div class="result">
-          <div class="sc">
+          <!--<div class="sc">
             <div class="sci">
               <div class="sciup">
                 <div class="songT">
@@ -351,7 +354,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
     </div>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
