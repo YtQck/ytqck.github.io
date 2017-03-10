@@ -38,4 +38,22 @@ $(document).ready(function(){
         song(index, value.id.videoId);
       })
   });
+  $("#query").autocomplete({
+      source: function(request, response) {
+          query = request.term;
+          $.ajax({
+              url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1&q=" + query + "&key=" + api + "&format=5&alt=json&callback=?",
+              dataType: 'jsonp',
+              appendTo: '.msr',
+              success: function(data, textStatus, request) {
+                  response($.map(data[1], function(item) {
+                      return {
+                          label: item[0],
+                          value: item[0]
+                      }
+                  }));
+              }
+          });
+      }
+  });
 })
