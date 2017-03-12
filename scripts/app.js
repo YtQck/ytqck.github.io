@@ -1,8 +1,7 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "http://127.0.0.1:4000/search";
+base_url = "https://ytqck.github.io/search";
 query = "";
 result = [''];
-sR = "";
 function search() {
     url = window.location.href;
     isLink = url.indexOf(base_url);
@@ -20,14 +19,21 @@ function search() {
         }
     }
 }
+function download(i, id) {
+    link = "https://www.youtubeinmp3.com/fetch/?format=JSON&filesize=1&bitrate=1&video=http://www.youtube.com/watch?v=" + id;
+    $.getJSON(link, function(response) {
+        $("[data-id='"+id+"']").attr("href", response.link);
+    });
+}
 function song(i, id){
   url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + api;
   $.getJSON(url, function(json) {
       songTitle = json.items[0].snippet.title;
       link = "https://ytqck.github.io/?id="+id;
-      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><span class=""><button data-id="'+id+'" type="button" class="actions" id="play">Play</button><button data-id="'+id+'" type="button" class="actions" id="download">Download</button></span></div></div></div>';
+      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><span class=""><a data-id="'+id+'" type="button" class="actions play">Play</a><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div></div>';
       $(".result").append(result[i]);
   });
+  download(i, id);
 }
 $(document).ready(function(){
   search();
