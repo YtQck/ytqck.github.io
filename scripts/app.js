@@ -65,9 +65,9 @@ $(document).ready(function(){
 })
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-     .register('/sw.js')
-     .then(function() {
-        console.log('Hurray! Service Worker Registered');
-      });
-  }
+  navigator.serviceWorker
+   .register('/sw.js')
+   .then(function() {
+      console.log('Hurray! Service Worker Registered');
+    });
+}
