@@ -2,7 +2,8 @@ cacheName = 'YtQckCache-v2';
 dataCacheName = 'YtQckDataCache';
 filesToCache = [
   '/',
-  '/down',
+  '/index',
+  '/index.html?hs=true',
   '/search',
   '/scripts/app.js',
   '/scripts/jquery.js',

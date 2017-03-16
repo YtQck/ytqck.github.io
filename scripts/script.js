@@ -1,5 +1,5 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io/";
+base_url = "https://ytqck.github.io/play";
 id = "";
 dataThere = "";
 nextV = "a";
