@@ -31,7 +31,7 @@ function song(i, id){
   $.getJSON(url, function(json) {
       songTitle = json.items[0].snippet.title;
       link = "https://ytqck.github.io/play?id="+id;
-      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><span class=""><a data-id="'+id+'" type="button" class="actions play">Play</a><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div></div>';
+      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><span class=""><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div><div class="player"></div></div>';
       $(".result").append(result[i]);
   });
   download(i, id);

@@ -1,15 +1,16 @@
-cacheName = 'YtQckCache-v2';
+cacheName = 'YtQckCache-v3';
 dataCacheName = 'YtQckDataCache';
 filesToCache = [
   '/',
   '/index',
-  '/index.html?hs=true',
+  '/index?hs=true',
   '/search',
+  '/search?q=*',
   '/scripts/app.js',
   '/scripts/jquery.js',
   '/scripts/jquery-ui.js',
   '/css/jquery-ui.css',
-  'assets/site/logo-64.png',
+  '/assets/site/logo-64.png',
   '/assets/site/logo-114-39.png',
   '/assets/site/logo-453-154.png',
   '/assets/site/bottom-223-32.png'
