@@ -1,11 +1,16 @@
-cacheName = 'YtQckCache-v3';
+cacheName = 'YtQckCache-v3.1';
 dataCacheName = 'YtQckDataCache';
 filesToCache = [
   '/',
+  '/?ref=fb',
+  '/?ref=twi',
   '/index',
   '/index?hs=true',
+  '/index?ref=fb',
+  '/index?ref=twi',
   '/search',
   '/search?q=*',
+  '/search?q=*&btn=*',
   '/scripts/app.js',
   '/scripts/jquery.js',
   '/scripts/jquery-ui.js',
