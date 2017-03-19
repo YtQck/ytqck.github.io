@@ -9,6 +9,7 @@ function search() {
         if (url.indexOf('=') > -1) {
           query = url.slice(url.indexOf("=") + 1, url.indexOf("&"));
           searchQ = query.replace(/\+/g, ' ');
+          query = query + "+song";
           document.title = searchQ + " - YtQck - Music Search Engine";
           $("#query").val(searchQ);
           if (query === '') {
