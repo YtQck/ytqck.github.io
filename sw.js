@@ -1,4 +1,4 @@
-cacheName = 'YtQckCache-v3.1';
+cacheName = 'YtQckCache-v3.2';
 dataCacheName = 'YtQckDataCache';
 filesToCache = [
   '/',

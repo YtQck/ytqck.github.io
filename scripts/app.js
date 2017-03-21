@@ -39,7 +39,7 @@ function song(i, id){
 }
 $(document).ready(function(){
   search();
-  searchAPI = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + query + '&type=video&maxResults=20&key=' + api;
+  searchAPI = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + query + '&type=video&maxResults=10&key=' + api;
   $.getJSON(searchAPI, function(json) {
       //id = json.items[0].id.videoId;
       $.each(json.items, function(index, value) {
