@@ -1,10 +1,10 @@
-cacheName = 'YtQckCache-v3.2';
+cacheName = 'YtQckCache-v3.3';
 dataCacheName = 'YtQckDataCache';
 filesToCache = [
   '/',
   '/?ref=fb',
   '/?ref=twi',
-  '/ref=yt',
+  '/?ref=yt',
   '/index',
   '/index?hs=true',
   '/index?ref=fb',

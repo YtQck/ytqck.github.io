@@ -21,10 +21,23 @@ function search() {
         }
     }
 }
+function timeEncode(time) {
+    mm = time / 60;
+    ss = time % 60;
+    mm = Math.floor(mm);
+    ss = Math.floor(ss);
+    if (ss < 10) {ss = "0" + ss;}
+    result = mm + ":" + ss;
+    return result;
+}
+
 function download(i, id) {
     link = "https://www.youtubeinmp3.com/fetch/?format=JSON&filesize=1&bitrate=1&video=http://www.youtube.com/watch?v=" + id;
     $.getJSON(link, function(response) {
-        $("[data-id='"+id+"']").attr("href", response.link);
+        $("a[data-id='"+id+"']").attr("href", response.link);
+        $("span[data-time='"+id+"']").html(timeEncode(response.length));
+        $("span[data-bit='"+id+"']").html(response.bitrate+" Kbps");
+        $("span[data-size='"+id+"']").html((response.filesize/1048576).toFixed(2)+" MB");
     });
 }
 function song(i, id){
@@ -32,7 +45,7 @@ function song(i, id){
   $.getJSON(url, function(json) {
       songTitle = json.items[0].snippet.title;
       link = "https://ytqck.github.io/play?id="+id;
-      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><span class=""><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div><div class="player"></div></div>';
+      result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><div class="msde"><span class="length" data-time="'+id+'"></span> | <span class="bitrate" data-bit="'+id+'"></span> | <span class="filesize" data-size="'+id+'"></span></div><span class=""><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div><div class="player"></div></div>';
       $(".result").append(result[i]);
   });
   download(i, id);
