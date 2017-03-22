@@ -1,14 +1,7 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
 query = "";
 result = [''];
-function search() {
-    url = window.location.href.split("?");
-    param = new URLSearchParams(url[1]);
-    query = param.getAll("q");
-    document.title = query + " - YtQck - Music Search Engine";
-    $("#query").val(query);
-    query += " song";
-}
+
 function timeEncode(time) {
     mm = time / 60;
     ss = time % 60;
@@ -39,7 +32,12 @@ function song(i, id){
   download(i, id);
 }
 $(document).ready(function(){
-  search();
+  url = window.location.href.split("?");
+  param = new URLSearchParams(url[1]);
+  query = param.getAll("q");
+  document.title = query + " - YtQck - Music Search Engine";
+  $("#query").val(query);
+  query += " song";
   searchAPI = 'https://www.googleapis.com/youtube/v3/search?part=id&q=' + query + '&type=video&maxResults=10&key=' + api;
   $.getJSON(searchAPI, function(json) {
       //id = json.items[0].id.videoId;
