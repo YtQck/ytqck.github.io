@@ -1,25 +1,13 @@
 api = "AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-base_url = "https://ytqck.github.io/search";
 query = "";
 result = [''];
 function search() {
-    url = window.location.href;
-    isLink = url.indexOf(base_url);
-    if (isLink != -1) {
-        if (url.indexOf('=') > -1) {
-          query = url.slice(url.indexOf("=") + 1, url.indexOf("&"));
-          searchQ = query.replace(/\+/g, ' ');
-          query = query + "+song";
-          document.title = searchQ + " - YtQck - Music Search Engine";
-          $("#query").val(searchQ);
-          if (query === '') {
-              //do nothing
-              alert("Music not found!");
-          }
-        } else {
-            //do nothing
-        }
-    }
+    url = window.location.href.split("?");
+    param = new URLSearchParams(url[1]);
+    query = param.getAll("q");
+    document.title = query + " - YtQck - Music Search Engine";
+    $("#query").val(query);
+    query += " song";
 }
 function timeEncode(time) {
     mm = time / 60;
