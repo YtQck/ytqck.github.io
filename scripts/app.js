@@ -27,6 +27,9 @@ function song(i, id){
       songTitle = json.items[0].snippet.title;
       link = "https://ytqck.github.io/play?id="+id;
       result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><div class="msde"><span class="length" data-time="'+id+'"></span> | <span class="bitrate" data-bit="'+id+'"></span> | <span class="filesize" data-size="'+id+'"></span></div><span class=""><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div><div class="player"></div></div>';
+      if(i==2){
+        result[i] = '<div class="sc"><div class="sci"><div class="sciup"><div class="songT"><h3><a href="'+link+'">'+songTitle+'</a></h3></div><div class="songL"><span class="link">'+link+'</span></div></div><div class="scidwn"><div class="msde"><span class="length" data-time="'+id+'"></span> | <span class="bitrate" data-bit="'+id+'"></span> | <span class="filesize" data-size="'+id+'"></span></div><span class=""><a data-id="'+id+'" type="button" class="actions download">Download</a></span></div></div><div class="player"></div></div>        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=12&l=ur1&category=primemain&banner=1MDTME9E9G651CJTDA82&f=ifr&linkID=b2d00fa4f1d814399a295c14eb125550&t=midhruvjaink-20&tracking_id=midhruvjaink-20" width="300" height="250" scrolling="no" border="0" marginwidth="20" style="border:none;" frameborder="0"></iframe>';
+      }
       $(".result").append(result[i]);
   });
   download(i, id);
